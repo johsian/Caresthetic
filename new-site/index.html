@@ -471,6 +471,23 @@
     display: none;
   }
 
+  .brand-logo {
+    display: block;
+    height: 3rem;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .footer-logo {
+    height: 2.4rem;
+    opacity: 0.82;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-logo:hover {
+    opacity: 1;
+  }
+
   @media (max-width: 767px) {
     .spec-row {
       flex-direction: column;
@@ -515,8 +532,12 @@
 
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <a href="#hero" class="font-heading text-xl font-bold tracking-widest uppercase text-white" style="letter-spacing: 0.2em;">
-      Caresthetic
+    <a href="#hero" class="flex items-center" aria-label="Caresthetic home">
+      <img
+        src="../Caresthetic%20Website%20Files/caresthetic/logo.png"
+        alt="Caresthetic"
+        class="brand-logo"
+      >
     </a>
 
     <div class="hidden md:flex items-center gap-8">
@@ -552,8 +573,7 @@
     </p>
 
     <h1 class="hero-title font-heading font-bold text-white leading-none mb-6" style="font-size: clamp(3.5rem, 12vw, 9rem); letter-spacing: -0.01em;">
-      Caresthetic<br>
-      <em class="not-italic gold-text">Naturalmente</em>
+      Caresthetic
     </h1>
 
     <p class="hero-tagline font-body font-light text-white/60 mb-6 tracking-widest uppercase" style="font-size: clamp(0.85rem, 2vw, 1.1rem); letter-spacing: 0.3em;">
@@ -996,8 +1016,12 @@
 
 <footer class="py-10 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    <a href="#hero" class="font-heading font-bold text-white/60 hover:text-white transition-colors duration-200" style="letter-spacing:0.2em; font-size:0.9rem;">
-      CARESTHETIC
+    <a href="#hero" class="flex items-center" aria-label="Caresthetic home">
+      <img
+        src="../Caresthetic%20Website%20Files/caresthetic/logo.png"
+        alt="Caresthetic"
+        class="brand-logo footer-logo"
+      >
     </a>
 
     <p class="font-body text-white/25 text-xs tracking-wider order-last md:order-none" style="letter-spacing:0.1em;">
