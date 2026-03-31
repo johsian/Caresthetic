@@ -531,7 +531,7 @@
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="#hero" class="flex items-center" aria-label="Caresthetic home">
       <img
-        src="../Caresthetic%20Website%20Files/caresthetic/logo.png"
+        src="logo.png"
         alt="Caresthetic"
         class="brand-logo"
       >
@@ -1015,7 +1015,7 @@
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
     <a href="#hero" class="flex items-center" aria-label="Caresthetic home">
       <img
-        src="../Caresthetic%20Website%20Files/caresthetic/logo.png"
+        src="logo.png"
         alt="Caresthetic"
         class="brand-logo footer-logo"
       >
@@ -1026,13 +1026,13 @@
     </p>
 
     <div class="flex items-center gap-5">
-      <a href="https://www.instagram.com/caresthetic_?igsh=czR3eGtmNnRvejAw" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Instagram">
+      <a href="https://instagram.com/carestheticpr" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Instagram">
         <i class="ri-instagram-line text-lg"></i>
       </a>
-      <a href="https://www.threads.com/@caresthetic_?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Threads">
+      <a href="https://www.threads.com/@carestheticpr?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Threads">
         <i class="ri-threads-line text-lg"></i>
       </a>
-      <a href="https://www.facebook.com/share/12KSNAKZW7f/?mibextid=wwXIfr" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Facebook">
+      <a href="https://www.facebook.com/people/Caresthetic/100092566654430/" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Facebook">
         <i class="ri-facebook-line text-lg"></i>
       </a>
     </div>
@@ -1098,6 +1098,7 @@
   const contactSection = document.getElementById('contact');
   const contactService = document.getElementById('service');
   const contactMessage = document.getElementById('message');
+  const clinicBookingUrl = 'https://www.facebook.com/people/Caresthetic/100092566654430/';
 
   const chatbotState = {
     seeded: false,
@@ -1153,6 +1154,10 @@
     }
   }
 
+  function openClinicBookingPage() {
+    window.open(clinicBookingUrl, '_blank', 'noopener');
+  }
+
   function getChatbotReply(message) {
     const normalized = message
       .normalize('NFD')
@@ -1202,8 +1207,11 @@
 
     if (wantsBooking) {
       return {
-        text: 'Perfecto. Puedes reservar desde el formulario al final de la página. Te ayudo a llegar allí ahora mismo para que completes nombre, contacto y tratamiento de interés.',
-        action: () => scrollToBooking('', 'Hola, deseo reservar una consulta y conocer el tratamiento más adecuado para mí.'),
+        text: 'Perfecto. Puedes reservar desde el formulario al final de la página o ir directo a nuestra página de citas en Facebook. Te llevaré al formulario y también abriré la página de citas en una nueva pestaña.',
+        action: () => {
+          scrollToBooking('', 'Hola, deseo reservar una consulta y conocer el tratamiento más adecuado para mí.');
+          openClinicBookingPage();
+        },
       };
     }
 
