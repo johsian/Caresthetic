@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caresthetic — Medicina Estética de Lujo · San Juan, Puerto Rico</title>
+<meta name="description" content="Caresthetic es una clínica de medicina estética en San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona. Tratamientos de vanguardia con resultados naturales.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['"Bodoni Moda"', 'Georgia', 'serif'],
+          body: ['Jost', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          gold: {
+            DEFAULT: '#CA8A04',
+            light: '#EAB308',
+            dim: '#92400E',
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --gold: #CA8A04;
+    --gold-light: #EAB308;
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(202, 138, 4, 0.12);
+    --glass-hover-border: rgba(202, 138, 4, 0.3);
+    --text-dim: rgba(255, 255, 255, 0.58);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: transparent;
+    color: #fff;
+    font-family: 'Jost', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { text-decoration: none; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: rgba(202, 138, 4, 0.45); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(234, 179, 8, 0.75); }
+
+  .font-heading { font-family: 'Bodoni Moda', Georgia, serif; }
+  .font-body { font-family: 'Jost', system-ui, sans-serif; }
+
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+
+  .glass-card:hover {
+    background: var(--glass-hover);
+    border-color: var(--glass-hover-border);
+    box-shadow: 0 0 40px rgba(202, 138, 4, 0.08);
+    transform: translateY(-2px);
+  }
+
+  #navbar {
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+  }
+
+  #navbar.scrolled {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover { color: #fff; }
+  .nav-link:hover::after { width: 100%; }
+
+  #hero-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -2;
+  }
+
+  #bg-overlay {
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.32) 35%, rgba(0, 0, 0, 0.68) 78%, rgba(0, 0, 0, 0.92) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  #frame-progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, #CA8A04, #EAB308);
+    z-index: 100;
+    transition: width 0.04s linear;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.16) 0%,
+      rgba(0, 0, 0, 0.1) 28%,
+      rgba(0, 0, 0, 0.36) 62%,
+      rgba(0, 0, 0, 0.84) 86%,
+      #000 100%
+    );
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-label { animation: fadeUp 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-title { animation: fadeUp 0.9s 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-tagline { animation: fadeUp 0.9s 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-copy { animation: fadeUp 0.9s 0.75s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-ctas { animation: fadeUp 0.9s 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-scroll { animation: fadeUp 0.9s 1.15s cubic-bezier(0.16,1,0.3,1) both; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bounce-arrow { animation: bounceSlow 2.2s ease-in-out infinite; }
+
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(9px); }
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #CA8A04 0%, #EAB308 50%, #CA8A04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #CA8A04, #EAB308);
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-gold:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(202, 138, 4, 0.35);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-1px);
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #CA8A04, transparent);
+  }
+
+  .spec-row {
+    border-bottom: 1px solid rgba(202, 138, 4, 0.12);
+    transition: background 0.2s ease;
+  }
+
+  .spec-row:hover { background: rgba(255, 255, 255, 0.02); }
+  .spec-row:last-child { border-bottom: none; }
+
+  .cta-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #CA8A04, #EAB308, #CA8A04, transparent);
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.75rem;
+  }
+
+  .input-field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+    color: #fff;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0 0 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    border-radius: 0;
+  }
+
+  .input-field::placeholder { color: rgba(255,255,255,0.28); }
+  .input-field:focus { border-bottom-color: rgba(202, 138, 4, 0.82); }
+
+  select.input-field option {
+    background: #111;
+    color: #fff;
+  }
+
+  .gallery-img {
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.05);
+  }
+
+  #mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #mobile-menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .spec-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate], .hero-label, .hero-title, .hero-tagline, .hero-copy, .hero-ctas, .hero-scroll,
+    .bounce-arrow, .btn-gold, .btn-ghost, .glass-card, .nav-link::after, .gallery-img {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+</head>
+
+<body class="text-white font-body">
+
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+<div id="bg-overlay"></div>
+<div id="frame-progress"></div>
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#hero" class="font-heading text-xl font-bold tracking-widest uppercase text-white" style="letter-spacing: 0.2em;">
+      Caresthetic
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Servicios</a>
+      <a href="#about" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Nosotros</a>
+      <a href="#treatments" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Tratamientos</a>
+      <a href="#contact" class="btn-gold text-xs px-5 py-2.5 rounded-full" style="min-width:160px;">Reservar</a>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer" aria-label="Toggle menu">
+      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar1"></span>
+      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar2"></span>
+      <span class="block w-4 h-px bg-white transition-all duration-300 self-end" id="bar3"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="glass mt-3 mx-0 rounded-2xl p-6 flex flex-col gap-5">
+      <a href="#services" class="font-body text-white/70 tracking-wider uppercase text-sm">Servicios</a>
+      <a href="#about" class="font-body text-white/70 tracking-wider uppercase text-sm">Nosotros</a>
+      <a href="#treatments" class="font-body text-white/70 tracking-wider uppercase text-sm">Tratamientos</a>
+      <a href="#contact" class="btn-gold text-xs px-5 py-3 rounded-full text-center">Reservar Consulta</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero" style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+  <div class="hero-overlay"></div>
+
+  <div style="position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 920px;">
+    <p class="hero-label font-body text-xs tracking-widest uppercase mb-6" style="color: #CA8A04; letter-spacing: 0.3em;">
+      San Juan · Puerto Rico
+    </p>
+
+    <h1 class="hero-title font-heading font-bold text-white leading-none mb-6" style="font-size: clamp(3.5rem, 12vw, 9rem); letter-spacing: -0.01em;">
+      Caresthetic<br>
+      <em class="not-italic gold-text">Naturalmente</em>
+    </h1>
+
+    <p class="hero-tagline font-body font-light text-white/60 mb-6 tracking-widest uppercase" style="font-size: clamp(0.85rem, 2vw, 1.1rem); letter-spacing: 0.3em;">
+      Medicina Estética · Precisión · Elegancia
+    </p>
+
+    <p class="hero-copy font-body font-light text-white/55 mx-auto mb-10 leading-loose" style="max-width: 640px; font-size: clamp(1rem, 1.5vw, 1.12rem);">
+      Tratamientos de vanguardia con resultados naturales, en un ambiente de lujo, privacidad y atención altamente personalizada.
+    </p>
+
+    <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#contact" class="btn-gold text-sm px-10 py-4 rounded-full" style="min-width:190px;">Agendar Consulta</a>
+      <a href="#about" class="btn-ghost text-sm px-10 py-4 rounded-full" style="min-width:190px;">Conocer Clínica</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.4;">
+    <span class="font-body tracking-widest uppercase" style="letter-spacing:0.2em; font-size:0.65rem;">Scroll</span>
+    <svg class="bounce-arrow w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 3L8 13M8 13L4 9M8 13L12 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<section id="services" class="py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Servicios</p>
+      <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Tratamientos diseñados para<br><em class="not-italic gold-text">realzar, no transformar</em>
+      </h2>
+      <div class="divider mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.05s;">
+        <div class="mb-6">
+          <i class="ri-sparkling-2-line text-3xl" style="color:#CA8A04;"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Rejuvenecimiento de la Piel</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
+          Protocolos avanzados para restaurar textura, luminosidad y firmeza con una estética limpia, fresca y sofisticada.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.12s;">
+        <div class="mb-6">
+          <i class="ri-drop-line text-3xl" style="color:#CA8A04;"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Inyectables de Precisión</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
+          Bótox, Xeomin y rellenos dérmicos aplicados con criterio médico y una visión facial refinada para resultados naturales.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.19s;">
+        <div class="mb-6">
+          <i class="ri-scan-2-line text-3xl" style="color:#CA8A04;"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Tecnología de Vanguardia</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
+          Medicina estética respaldada por equipos de última generación, evaluación clínica cuidadosa y ejecución controlada.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.26s;">
+        <div class="mb-6">
+          <i class="ri-user-heart-line text-3xl" style="color:#CA8A04;"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Atención Personalizada</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
+          Cada plan se ajusta a tus rasgos, objetivos y ritmo de vida para preservar tu identidad y elevar tu presencia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-32 px-6 overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-16" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-6" style="color:#CA8A04; letter-spacing:0.3em;">Nosotros</p>
+      <h2 class="font-heading font-bold text-white leading-none" style="font-size: clamp(2.5rem, 7vw, 6rem); line-height: 1.05;">
+        Donde la medicina estética<br><em class="not-italic gold-text">se siente editorial</em>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div data-animate style="transition-delay:0.1s;">
+        <p class="font-body font-light text-white/55 leading-loose" style="font-size:1.05rem; line-height:1.9;">
+          Caresthetic es una clínica de medicina estética ubicada en la Clínica Las Américas, suite 501, en San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona.
+        </p>
+      </div>
+      <div data-animate style="transition-delay:0.2s;">
+        <p class="font-body font-light text-white/55 leading-loose" style="font-size:1.05rem; line-height:1.9;">
+          Nuestro enfoque une criterio médico, sensibilidad estética y tecnología avanzada para ofrecer resultados excepcionales que respetan la armonía natural del rostro y la piel.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 mt-24 pt-12 border-t" style="border-color: rgba(255,255,255,0.06);">
+      <div data-animate style="transition-delay:0.05s;" class="text-center">
+        <p class="font-heading gold-text font-bold" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">501</p>
+        <p class="font-body text-white/35 text-xs tracking-widest uppercase mt-2" style="letter-spacing:0.18em;">Suite</p>
+      </div>
+      <div data-animate style="transition-delay:0.12s;" class="text-center">
+        <p class="font-heading gold-text font-bold" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">6</p>
+        <p class="font-body text-white/35 text-xs tracking-widest uppercase mt-2" style="letter-spacing:0.18em;">Tratamientos Clave</p>
+      </div>
+      <div data-animate style="transition-delay:0.19s;" class="text-center">
+        <p class="font-heading gold-text font-bold" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">1:1</p>
+        <p class="font-body text-white/35 text-xs tracking-widest uppercase mt-2" style="letter-spacing:0.18em;">Atención Personal</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treatments" class="py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Tratamientos</p>
+      <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Portafolio clínico con una<br><em class="not-italic gold-text">presentación de lujo</em>
+      </h2>
+      <div class="divider mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.05s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento de Bótox"
+          >
+            <source src="../Patient2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Inyectables</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Bótox</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Suaviza líneas de expresión y rejuvenece el rostro sin perder naturalidad.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.12s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento Anti-Edad"
+          >
+            <source src="../Patient1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Rejuvenecimiento</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Anti-Edad</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Estrategias integrales para mejorar tono, firmeza y vitalidad visible.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.19s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            style="object-position: center 22%;"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento Xeomin"
+          >
+            <source src="../Patient3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Inyectables</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Xeomin</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Neuromodulación precisa para una expresión descansada, fresca y elegante.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.26s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento Rellenos Dérmicos"
+          >
+            <source src="../Patient4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Rellenos</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Rellenos Dérmicos</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Volumen estratégico y contorno facial con acabados sutiles y armónicos.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.33s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento Medicina Estética"
+          >
+            <source src="../Patient5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Integral</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Medicina Estética</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Planes clínicos personalizados para cuidar piel, estructura y proporción.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item glass-card rounded-3xl overflow-hidden" data-animate style="transition-delay: 0.4s;">
+        <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+          <video
+            class="gallery-img treatment-video w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+            aria-label="Video de tratamiento Ácido Hialurónico"
+          >
+            <source src="../Patient6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-8">
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Hidratación</p>
+          <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Ácido Hialurónico</h3>
+          <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+            Hidratación profunda y soporte dérmico para una apariencia luminosa y plena.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="details" class="py-32 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Detalles</p>
+      <h2 class="font-heading font-bold text-white" style="font-size: clamp(2rem, 4.5vw, 3.2rem);">
+        Experiencia Caresthetic
+      </h2>
+      <div class="divider mx-auto mt-5"></div>
+    </div>
+
+    <div class="glass rounded-3xl overflow-hidden" data-animate style="transition-delay:0.1s;">
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Director Médico</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Dr. Carlos R. Cardona</span>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Ubicación</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Clínica Las Américas, Suite 501, San Juan</span>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Horario</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Lun–Vie 9:00 AM–7:00 PM · Sáb 10:00 AM–5:00 PM</span>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Especialidad</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Medicina estética con resultados naturales</span>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Contacto</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">787.468.8050 · booking@carestheticpr.com</span>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Enfoque</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2" style="color:#CA8A04;">Personalizado · Seguro · Refinado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="relative py-40 px-6 text-center overflow-hidden">
+  <div class="cta-glow"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(202,138,4,0.06) 0%, transparent 70%);"></div>
+
+  <div class="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 text-left">
+    <div data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-6 text-center lg:text-left" style="color:#CA8A04; letter-spacing:0.3em;">Contacto</p>
+      <h2 class="font-heading font-bold text-white mb-6 leading-tight text-center lg:text-left" style="font-size: clamp(2.2rem, 6vw, 4.5rem);">
+        Agenda una experiencia<br><em class="not-italic gold-text">a tu medida</em>
+      </h2>
+      <p class="font-body font-light text-white/45 mb-10 max-w-md mx-auto lg:mx-0 leading-loose text-center lg:text-left" style="font-size:1rem;">
+        Da el primer paso hacia una versión más refinada de ti, con una consulta personalizada en un entorno clínico de alto nivel.
+      </p>
+
+      <div class="glass rounded-3xl overflow-hidden">
+        <div class="spec-row flex items-center px-8 py-5">
+          <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Dirección</span>
+          <a href="https://maps.app.goo.gl/y4wg5qGeRjkxeQBy9" target="_blank" rel="noopener" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">Clínica Las Américas, Suite 501</a>
+        </div>
+        <div class="spec-row flex items-center px-8 py-5">
+          <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Teléfono</span>
+          <a href="tel:7874688050" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">787.468.8050</a>
+        </div>
+        <div class="spec-row flex items-center px-8 py-5">
+          <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Email</span>
+          <a href="mailto:booking@carestheticpr.com" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">booking@carestheticpr.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass rounded-3xl p-8 lg:p-10" data-animate style="transition-delay:0.12s;">
+      <form action="send-consulta.php" method="POST" class="space-y-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <label for="name" class="field-label">Nombre Completo</label>
+            <input type="text" id="name" name="name" required class="input-field" placeholder="Tu nombre">
+          </div>
+          <div>
+            <label for="email" class="field-label">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required class="input-field" placeholder="tu@email.com">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <label for="phone" class="field-label">Teléfono</label>
+            <input type="tel" id="phone" name="phone" required class="input-field" placeholder="787.xxx.xxxx">
+          </div>
+          <div>
+            <label for="service" class="field-label">Servicio de Interés</label>
+            <select id="service" name="service" required class="input-field cursor-pointer">
+              <option value="" disabled selected>Seleccionar tratamiento</option>
+              <option value="Bótox">Bótox</option>
+              <option value="Anti-Edad">Anti-Edad</option>
+              <option value="Xeomin">Xeomin</option>
+              <option value="Rellenos Dérmicos">Rellenos Dérmicos</option>
+              <option value="Medicina Estética">Medicina Estética</option>
+              <option value="Ácido Hialurónico">Ácido Hialurónico</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="field-label">Mensaje</label>
+          <textarea id="message" name="message" rows="4" class="input-field resize-none" placeholder="Cuéntanos sobre tus inquietudes o preguntas"></textarea>
+        </div>
+
+        <div class="g-recaptcha" data-sitekey="6Ler5TkrAAAAACNlPvlQMdRNcToOC1kVQH0vr0YR"></div>
+
+        <div class="pt-2">
+          <button type="submit" class="btn-gold text-sm px-12 py-4 rounded-full" style="min-width:200px;">Agendar Consulta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="py-10 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <a href="#hero" class="font-heading font-bold text-white/60 hover:text-white transition-colors duration-200" style="letter-spacing:0.2em; font-size:0.9rem;">
+      CARESTHETIC
+    </a>
+
+    <p class="font-body text-white/25 text-xs tracking-wider order-last md:order-none" style="letter-spacing:0.1em;">
+      © 2026 Caresthetic. Todos los derechos reservados.
+    </p>
+
+    <div class="flex items-center gap-5">
+      <a href="https://www.instagram.com/caresthetic_?igsh=czR3eGtmNnRvejAw" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Instagram">
+        <i class="ri-instagram-line text-lg"></i>
+      </a>
+      <a href="https://www.threads.com/@caresthetic_?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Threads">
+        <i class="ri-threads-line text-lg"></i>
+      </a>
+      <a href="https://www.facebook.com/share/12KSNAKZW7f/?mibextid=wwXIfr" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Facebook">
+        <i class="ri-facebook-line text-lg"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.classList.remove('hidden');
+      bar1.style.transform = 'translateY(6px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+      bar3.style.width = '24px';
+    } else {
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+      bar3.style.width = '';
+    }
+  });
+
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+      bar3.style.width = '';
+    });
+  });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const animateEls = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    });
+
+    animateEls.forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  document.querySelectorAll('.treatment-video').forEach((video) => {
+    const card = video.closest('.gallery-item');
+    if (!card) return;
+
+    const playVideo = () => {
+      video.pause();
+      video.playbackRate = 2;
+      video.currentTime = 0;
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    };
+
+    const freezeLastFrame = () => {
+      video.pause();
+      try {
+        video.currentTime = Math.max((video.duration || 0) - 0.05, 0);
+      } catch (error) {}
+    };
+
+    video.addEventListener('ended', freezeLastFrame);
+    card.addEventListener('mouseenter', playVideo);
+    card.addEventListener('focusin', playVideo);
+  });
+
+  (function () {
+    'use strict';
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const FRAME_COUNT = 121;
+    const frames = new Array(FRAME_COUNT).fill(null);
+    let currentFrameIndex = 0;
+    let rafPending = false;
+
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    const frameProgress = document.getElementById('frame-progress');
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      renderFrame(currentFrameIndex);
+    }
+
+    function drawImageCover(img) {
+      const cw = window.innerWidth;
+      const ch = window.innerHeight;
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+      if (!iw || !ih) return;
+
+      const scale = Math.max(cw / iw, ch / ih);
+      const sw = iw * scale;
+      const sh = ih * scale;
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
+    }
+
+    function renderFrame(index) {
+      let img = frames[index];
+      if (!img || !img.complete || !img.naturalWidth) {
+        let fallbackIndex = index;
+        while (fallbackIndex >= 0) {
+          img = frames[fallbackIndex];
+          if (img && img.complete && img.naturalWidth) break;
+          fallbackIndex -= 1;
+        }
+      }
+      if (img && img.complete && img.naturalWidth) {
+        drawImageCover(img);
+      }
+    }
+
+    function padNum(n) {
+      return String(n).padStart(4, '0');
+    }
+
+    function loadFrame(index) {
+      const img = new Image();
+      img.src = `frames-webp/frame_${padNum(index + 1)}.webp`;
+      img.onload = () => {
+        frames[index] = img;
+        if (index === 0) {
+          resizeCanvas();
+        }
+      };
+      frames[index] = img;
+    }
+
+    function loadFrames() {
+      loadFrame(0);
+      for (let i = 1; i < FRAME_COUNT; i += 1) {
+        loadFrame(i);
+      }
+    }
+
+    function onScrollFrames() {
+      const scrollTop = window.scrollY;
+      const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollRange > 0 ? Math.max(0, Math.min(1, scrollTop / scrollRange)) : 0;
+      const targetFrame = Math.min(FRAME_COUNT - 1, Math.floor(progress * (FRAME_COUNT - 1)));
+
+      frameProgress.style.width = (progress * 100) + '%';
+
+      if (targetFrame !== currentFrameIndex) {
+        currentFrameIndex = targetFrame;
+        if (!rafPending) {
+          rafPending = true;
+          requestAnimationFrame(() => {
+            renderFrame(currentFrameIndex);
+            rafPending = false;
+          });
+        }
+      }
+    }
+
+    window.addEventListener('scroll', onScrollFrames, { passive: true });
+    window.addEventListener('resize', resizeCanvas);
+
+    resizeCanvas();
+    loadFrames();
+    onScrollFrames();
+  })();
+</script>
+
+</body>
+</html>

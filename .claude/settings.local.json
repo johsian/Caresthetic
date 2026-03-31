@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(uipro init:*)",
+      "Bash(claude install-skill:*)",
+      "Bash(npx @secondsky/claude-skills@latest --name motion)",
+      "mcp__stitch__create_project",
+      "Bash(ffmpeg -i \"/Volumes/YOCN/My Websites/Caresthetic/Hyper-realistic_close-up.mp4\" -vf \"scale=1280:1280:flags=lanczos\" -q:v 3 \"/Volumes/YOCN/My Websites/Caresthetic/new-site/frames/frame_%04d.jpg\" -y)",
+      "mcp__stitch__create_design_system",
+      "mcp__stitch__generate_screen_from_text",
+      "Bash(ffmpeg -i \"/Volumes/YOCN/My Websites/Caresthetic/Hyper-realistic_close-up.mp4\" -vf \"scale=960:960:flags=lanczos\" -vcodec libwebp -quality 65 -compression_level 4 \"/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp/f%04d.webp\" -y)",
+      "Bash(for f:*)",
+      "Bash(do base=\"$f%.jpg\" cwebp -q 60 -resize 960 960 \"$f\" -o \"../frames-webp/$base.webp\" -quiet done)",
+      "Read(//Volumes/YOCN/My Websites/**)",
+      "mcp__plugin_claude-mem_mcp-search__get_observations",
+      "mcp__stitch__list_screens",
+      "mcp__stitch__get_project"
+    ]
+  }
+}

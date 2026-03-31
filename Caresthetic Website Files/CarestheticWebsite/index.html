@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caresthetic - Clínica Estética</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e6c2b3',secondary:'#f7f3f0'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+color: #4a4a4a;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Cormorant Garamond', serif;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0) 100%), url('https://readdy.ai/api/search-image?query=luxurious%20spa%20environment%20with%20soft%20lighting%2C%20elegant%20decor%2C%20subtle%20rose%20gold%20accents%2C%20and%20a%20serene%20atmosphere.%20The%20image%20should%20convey%20a%20sense%20of%20calm%20and%20sophistication%2C%20with%20minimal%20clutter%20and%20a%20focus%20on%20clean%20lines.%20The%20lighting%20should%20be%20warm%20and%20inviting%2C%20creating%20a%20relaxing%20ambiance%20perfect%20for%20aesthetic%20treatments&width=1920&height=1080&seq=12345&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(230, 194, 179, 0.3);
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #e6c2b3;
+}
+.custom-input {
+border-bottom: 1px solid #e6c2b3;
+transition: all 0.3s ease;
+}
+.custom-input:focus {
+border-bottom: 2px solid #e6c2b3;
+}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<!-- Navigation -->
+<nav class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50 py-4">
+<div class="container mx-auto px-6 flex items-center justify-between">
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/6cb13971255acaa3adb08a2229941bad.png" alt="Caresthetic" class="h-12">
+</a>
+<div class="hidden md:flex space-x-8">
+<a href="#home" class="text-gray-700 hover:text-primary transition-colors">Inicio</a>
+<a href="#services" class="text-gray-700 hover:text-primary transition-colors">Servicios</a>
+<a href="#about" class="text-gray-700 hover:text-primary transition-colors">Nosotros</a>
+<a href="#gallery" class="text-gray-700 hover:text-primary transition-colors">Galería</a>
+<a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contacto</a>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center pt-20 relative bg-white">
+<div class="absolute inset-0">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/87531d3728f1f13106477a7dc55c0cc3.png" alt="Clinic Interior" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+</div>
+<div class="container mx-auto px-6 w-full relative">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-6xl font-light text-white leading-tight mb-6">Revela Tu Belleza Natural</h1>
+<p class="text-lg text-white mb-8">Experimenta tratamientos estéticos premium diseñados para realzar tus rasgos únicos. Nuestra clínica combina tecnología avanzada con experiencia artística para resultados naturales.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#contact" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-center">Reservar Consulta</a>
+<a href="#services" class="border border-white text-white px-8 py-3 rounded-button font-medium hover:bg-white hover:text-gray-900 transition-all whitespace-nowrap text-center">Explorar Tratamientos</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-secondary bg-opacity-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-light text-gray-800 mb-4">Nuestros Servicios Premium</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Descubre nuestra gama de tratamientos estéticos innovadores diseñados para realzar tu belleza natural y aumentar tu confianza.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Service 1 -->
+<a href="#gallery">
+  <div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+      <i class="ri-sun-line ri-xl text-primary"></i>
+    </div>
+    <h3 class="text-2xl font-light text-gray-800 mb-3">Rejuvenecimiento de la Piel</h3>
+    <p class="text-gray-600 mb-4">Tratamientos avanzados para restaurar el brillo juvenil y la textura de tu piel.</p>
+  </div>
+</a>
+<!-- Service 2 -->
+<a href="#gallery">
+  <div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+      <i class="ri-drop-line ri-xl text-primary"></i>
+    </div>
+    <h3 class="text-2xl font-light text-gray-800 mb-3">Inyectables</h3>
+    <p class="text-gray-600 mb-4">Tratamientos de precisión para suavizar líneas y mejorar los contornos faciales.</p>
+  </div>
+</a>
+<!-- Service 3 -->
+<a href="#gallery">
+  <div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+      <i class="ri-shape-line ri-xl text-primary"></i>
+    </div>
+    <h3 class="text-2xl font-light text-gray-800 mb-3">Contorno Corporal</h3>
+    <p class="text-gray-600 mb-4">Tratamientos no quirúrgicos para esculpir y refinar la silueta de tu cuerpo.</p>
+  </div>
+</a>
+<!-- Service 4 -->
+<a href="#gallery">
+  <div class="service-card bg-white p-8 rounded-lg shadow-sm transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+      <i class="ri-flashlight-line ri-xl text-primary"></i>
+    </div>
+    <h3 class="text-2xl font-light text-gray-800 mb-3">Terapia Láser</h3>
+    <p class="text-gray-600 mb-4">Tratamientos láser de última generación para problemas de la piel y depilación.</p>
+  </div>
+</a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center gap-12">
+<div class="lg:w-1/2">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/70ce137e85d0d16d216755aad553cfc7.jpeg" alt="Dr. Carlos R. Cardona at Caresthetic" class="rounded-lg shadow-lg w-full h-auto object-cover">
+</div>
+<div class="lg:w-1/2">
+<h2 class="text-4xl font-light text-gray-800 mb-6">Sobre Caresthetic</h2>
+<p class="text-gray-600 mb-6">Caresthetic es una clínica de medicina estética ubicada en San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona. La clínica se encuentra en la Clínica Las Américas, suite 501, en la Avenida Franklin D. Roosevelt. Nuestro enfoque combina tecnología avanzada con experiencia artística para brindar resultados excepcionales, realzando tu belleza natural a través de tratamientos estéticos innovadores y personalizados.</p>
+<div class="mb-8">
+<h3 class="text-2xl font-light text-gray-800 mb-4">Nuestra Filosofía</h3>
+<p class="text-gray-600">Estamos comprometidos en proporcionar tratamientos que no solo mejoren tu apariencia, sino que también aumenten tu confianza y bienestar. Nuestro equipo se toma el tiempo para entender tus necesidades y objetivos únicos, creando planes de tratamiento personalizados que brindan resultados naturales.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-medal-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-2">Equipo Experto</h4>
+<p class="text-gray-600">Profesionales altamente calificados con años de experiencia.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-heart-pulse-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-2">Tratamientos Seguros</h4>
+<p class="text-gray-600">Procedimientos avanzados con seguridad comprobada.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-microscope-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-2">Última Tecnología</h4>
+<p class="text-gray-600">Equipos de última generación para resultados óptimos.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-user-smile-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-2">Atención Personalizada</h4>
+<p class="text-gray-600">Tratamientos personalizados adaptados a tus necesidades.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Treatment Gallery -->
+<section id="gallery" class="py-20 bg-secondary bg-opacity-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-light text-gray-800 mb-4">Galería de Tratamientos</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Explora nuestra galería de resultados transformadores y descubre las posibilidades para tu viaje estético.</p>
+</div>
+<!-- Gallery Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Gallery Item 1 - Bótox -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=close%20up%20of%20a%20womans%20face%20receiving%20botox%20injection%20treatment%20in%20a%20luxury%20medical%20spa%20setting%2C%20with%20focus%20on%20the%20smooth%20skin%20and%20professional%20medical%20equipment%20in%20the%20background%2C%20soft%20lighting%20and%20clean%20medical%20environment&width=800&height=600&seq=12346&orientation=landscape" alt="Tratamiento de Bótox" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Bótox</h3>
+<p class="text-gray-600 mb-4">Tratamientos premium de bótox para reducción de arrugas y rejuvenecimiento facial.</p>
+</div>
+</div>
+<!-- Gallery Item 2 - Anti-Edad -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=professional%20anti-aging%20treatment%20being%20performed%20in%20a%20luxury%20medical%20spa%2C%20showing%20advanced%20skincare%20technology%20and%20equipment%2C%20soft%20warm%20lighting%2C%20clean%20modern%20aesthetic%20environment%2C%20focus%20on%20facial%20rejuvenation%20procedure%20with%20visible%20results%2C%20elegant%20and%20sophisticated%20medical%20setting%20with%20rose%20gold%20accents&width=800&height=600&seq=12347&orientation=landscape" alt="Tratamiento Anti-Edad" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Anti-Edad</h3>
+<p class="text-gray-600 mb-4">Tratamientos integrales para revertir los signos visibles del envejecimiento.</p>
+</div>
+</div>
+<!-- Gallery Item 3 - Xeomin -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=professional%20medical%20practitioner%20administering%20Xeomin%20treatment%20in%20a%20modern%20aesthetic%20clinic%2C%20focusing%20on%20precise%20injection%20technique%2C%20with%20state-of-the-art%20medical%20equipment%20and%20elegant%20spa%20environment%20in%20the%20background&width=800&height=600&seq=12348&orientation=landscape" alt="Tratamiento Xeomin" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Xeomin</h3>
+<p class="text-gray-600 mb-4">Advanced neurotoxin treatment for natural-looking results.</p>
+</div>
+</div>
+<!-- Gallery Item 4 - Rellenos Dérmicos -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=close-up%20of%20dermal%20filler%20treatment%20being%20applied%20to%20enhance%20facial%20contours%20in%20a%20luxury%20medical%20spa%2C%20showing%20the%20precision%20of%20injection%20technique%20with%20professional%20medical%20equipment%2C%20clean%20and%20modern%20aesthetic%20clinic%20setting&width=800&height=600&seq=12349&orientation=landscape" alt="Rellenos Dérmicos" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Rellenos Dérmicos</h3>
+<p class="text-gray-600 mb-4">Rellenos premium para contorno facial y rejuvenecimiento.</p>
+</div>
+</div>
+<!-- Gallery Item 5 - Medicina Estética -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=advanced%20aesthetic%20medical%20treatment%20being%20performed%20in%20a%20high-end%20clinic%2C%20showcasing%20modern%20medical%20equipment%20and%20technology%2C%20elegant%20medical%20spa%20environment%20with%20soft%20lighting%20and%20professional%20medical%20staff&width=800&height=600&seq=12350&orientation=landscape" alt="Medicina Estética" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Medicina Estética</h3>
+<p class="text-gray-600 mb-4">Tratamientos médicos estéticos integrales.</p>
+</div>
+</div>
+<!-- Gallery Item 6 - Ácido Hialurónico -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<img src="https://readdy.ai/api/search-image?query=hyaluronic%20acid%20treatment%20being%20applied%20in%20a%20luxury%20medical%20spa%20setting%2C%20focusing%20on%20the%20hydrating%20and%20plumping%20effects%20on%20skin%2C%20with%20professional%20skincare%20products%20and%20modern%20medical%20equipment%20in%20an%20elegant%20clinic%20environment&width=800&height=600&seq=12351&orientation=landscape" alt="Ácido Hialurónico" class="w-full h-64 object-cover object-top">
+<div class="p-6">
+<h3 class="text-xl font-medium text-gray-800 mb-2">Ácido Hialurónico</h3>
+<p class="text-gray-600 mb-4">Tratamientos de hidratación profunda y rejuvenecimiento.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-secondary bg-opacity-20">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="lg:w-1/2">
+<h2 class="text-4xl font-light text-gray-800 mb-6">Agenda tu Consulta</h2>
+<p class="text-gray-600 mb-8">Da el primer paso hacia el realce de tu belleza natural. Programa una consulta personalizada con nuestros expertos en estética.</p>
+<form action="send-consulta.php" method="POST" class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+      <input type="text" id="name" name="name" required class="w-full py-3 px-4 bg-white border-none custom-input focus:ring-0" placeholder="Tu nombre">
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Correo Electrónico</label>
+      <input type="email" id="email" name="email" required class="w-full py-3 px-4 bg-white border-none custom-input focus:ring-0" placeholder="Tu correo electrónico">
+    </div>
+  </div>
+  <div>
+    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+    <input type="tel" id="phone" name="phone" required class="w-full py-3 px-4 bg-white border-none custom-input focus:ring-0" placeholder="Tu número de teléfono">
+  </div>
+  <div>
+    <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Servicio de Interés</label>
+    <select id="service" name="service" required class="w-full py-3 px-4 bg-white border-none custom-input focus:ring-0 appearance-none pr-8">
+      <option value="" disabled selected>Selecciona un servicio</option>
+      <option value="Bótox">Bótox</option>
+      <option value="Anti-Edad">Anti-Edad</option>
+      <option value="Xeomin">Xeomin</option>
+      <option value="Rellenos Dérmicos">Rellenos Dérmicos</option>
+      <option value="Medicina Estética">Medicina Estética</option>
+      <option value="Ácido Hialurónico">Ácido Hialurónico</option>
+    </select>
+  </div>
+  <div>
+    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Tu Mensaje</label>
+    <textarea id="message" name="message" rows="4" required class="w-full py-3 px-4 bg-white border-none custom-input focus:ring-0" placeholder="Cuéntanos sobre tus inquietudes o preguntas"></textarea>
+  </div>
+  <div class="g-recaptcha" data-sitekey="6Ler5TkrAAAAACNlPvlQMdRNcToOC1kVQH0vr0YR"></div>
+<button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap mt-4">Agendar Consulta</button>
+</form>
+</div>
+<div class="lg:w-1/2">
+<div class="bg-white p-8 rounded-lg shadow-sm h-full">
+<h3 class="text-2xl font-light text-gray-800 mb-6">Visita Nuestra Clínica</h3>
+<div class="space-y-6 mb-8">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-map-pin-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-1">Ubicación</h4>
+<a href="https://www.google.com/maps/search/Clinica+Las+Americas+suite+501+400+Ave.+FD+Roosevelt,+San+Juan,+Puerto+Rico+00918/@18.4180451,-66.0735866,16z?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D" class="text-gray-600 hover:text-primary transition-colors">Clinica Las Americas suite 501 400 Ave. FD Roosevelt<br>San Juan, Puerto Rico 00918</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-time-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-1">Horario de Atención</h4>
+<p class="text-gray-600">Lunes - Viernes: 9:00 AM - 7:00 PM<br>Sábado: 10:00 AM - 5:00 PM<br>Domingo: Cerrado</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+<i class="ri-phone-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800 mb-1">Contacto</h4>
+<p class="text-gray-600">Teléfono: 787.468.8050<br>Correo: booking@carestheticpr.com</p>
+</div>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden h-64 w-full">
+<a href="https://maps.app.goo.gl/y4wg5qGeRjkxeQBy9" target="_blank">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/e5000790f8ec0702e83f04f23bdffef4.png" alt="Clinic Location Map" class="w-full h-full object-cover">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/6cb13971255acaa3adb08a2229941bad.png" alt="Caresthetic" class="h-12">
+</a>
+<p class="text-gray-600 mb-6">Rejuvenating natural beauty through innovative aesthetic treatments in a luxurious, comforting environment.</p>
+<div class="flex space-x-4">
+  <a href="https://www.instagram.com/caresthetic_?igsh=czR3eGtmNnRvejAw" target="_blank" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+    <i class="ri-instagram-line ri-lg text-primary"></i>
+  </a>
+  <a href="https://www.threads.com/@caresthetic_?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+    <i class="ri-threads-line ri-lg text-primary"></i>
+  </a>
+  <a href="https://www.facebook.com/share/12KSNAKZW7f/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+    <i class="ri-facebook-line ri-lg text-primary"></i>
+  </a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-medium text-gray-800 mb-6">Enlaces Rápidos</h3>
+<ul class="space-y-3">
+<li><a href="#home" class="text-gray-600 hover:text-primary transition-colors">Inicio</a></li>
+<li><a href="#services" class="text-gray-600 hover:text-primary transition-colors">Servicios</a></li>
+<li><a href="#about" class="text-gray-600 hover:text-primary transition-colors">Nosotros</a></li>
+<li><a href="#gallery" class="text-gray-600 hover:text-primary transition-colors">Galería</a></li>
+<li><a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-medium text-gray-800 mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-map-pin-line ri-lg text-primary mr-3 mt-1"></i>
+<a href="https://www.google.com/maps/search/Clinica+Las+Americas+suite+501+400+Ave.+FD+Roosevelt,+San+Juan,+Puerto+Rico+00918/@18.4180451,-66.0735866,16z?entry=ttu&g_ep=EgoyMDI1MDUwNy.wIKXMDSoASAFQAw%3D%3D" class="text-gray-600 hover:text-primary transition-colors">Clinica Las Americas suite 501 400 Ave. FD Roosevelt<br>San Juan, Puerto Rico 00918</a>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line ri-lg text-primary mr-3"></i>
+<a href="tel:7874688050" class="text-gray-600 hover:text-primary transition-colors">787.468.8050</a>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line ri-lg text-primary mr-3"></i>
+<a href="mailto:booking@caresthetic.com" class="text-gray-600 hover:text-primary transition-colors">booking@caresthetic.com</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-200">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Caresthetic. Todos los derechos reservados.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 text-sm hover:text-primary transition-colors">Política de Privacidad</a>
+<a href="#" class="text-gray-500 text-sm hover:text-primary transition-colors">Términos de Servicio</a>
+<a href="#" class="text-gray-500 text-sm hover:text-primary transition-colors">Mapa del Sitio</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.querySelector('button');
+const mobileMenu = document.createElement('div');
+mobileMenu.className = 'fixed inset-0 bg-white z-50 flex flex-col p-6 transform translate-x-full transition-transform duration-300 ease-in-out';
+mobileMenu.innerHTML = `
+<div class="flex justify-between items-center mb-8">
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/3b0274e087f36c2bfb6109fbbb233625/6cb13971255acaa3adb08a2229941bad.png" alt="Caresthetic" class="h-12">
+</a>
+<button class="w-10 h-10 flex items-center justify-center">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-6">
+<a href="#home" class="text-gray-800 text-xl hover:text-primary transition-colors">Inicio</a>
+<a href="#services" class="text-gray-800 text-xl hover:text-primary transition-colors">Servicios</a>
+<a href="#about" class="text-gray-800 text-xl hover:text-primary transition-colors">Nosotros</a>
+<a href="#gallery" class="text-gray-800 text-xl hover:text-primary transition-colors">Galería</a>
+<a href="#contact" class="text-gray-800 text-xl hover:text-primary transition-colors">Contacto</a>
+</div>
+`;
+document.body.appendChild(mobileMenu);
+menuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('translate-x-full');
+document.body.classList.toggle('overflow-hidden');
+});
+mobileMenu.querySelector('button').addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+document.body.classList.remove('overflow-hidden');
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+document.body.classList.remove('overflow-hidden');
+});
+});
+});
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>
