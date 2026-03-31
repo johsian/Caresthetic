@@ -310,17 +310,194 @@
     pointer-events: none;
   }
 
+  .chatbot-shell {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.9rem;
+  }
+
+  .chatbot-panel {
+    width: min(24rem, calc(100vw - 2rem));
+    max-height: min(42rem, calc(100vh - 7rem));
+    border-radius: 1.75rem;
+    overflow: hidden;
+    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+    transform-origin: bottom right;
+    transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+  }
+
+  .chatbot-panel.hidden {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .chatbot-launcher {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 999px;
+    box-shadow: 0 18px 40px rgba(202, 138, 4, 0.28);
+  }
+
+  .chatbot-body {
+    display: flex;
+    flex-direction: column;
+    height: min(36rem, calc(100vh - 11rem));
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95), rgba(0, 0, 0, 0.98));
+  }
+
+  .chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1.25rem 0.75rem;
+    scroll-behavior: smooth;
+  }
+
+  .chat-message {
+    display: flex;
+    margin-bottom: 0.9rem;
+  }
+
+  .chat-message.user {
+    justify-content: flex-end;
+  }
+
+  .chat-bubble {
+    max-width: 85%;
+    padding: 0.9rem 1rem;
+    border-radius: 1.15rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .chat-message.bot .chat-bubble {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.88);
+    border-bottom-left-radius: 0.45rem;
+  }
+
+  .chat-message.user .chat-bubble {
+    background: linear-gradient(135deg, rgba(202, 138, 4, 0.9), rgba(234, 179, 8, 0.92));
+    color: #090909;
+    border-bottom-right-radius: 0.45rem;
+  }
+
+  .chat-quick-actions {
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding: 0 1.25rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .chat-quick-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chat-chip {
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.72);
+    border-radius: 999px;
+    padding: 0.72rem 0.95rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .chat-chip:hover,
+  .chat-chip:focus-visible {
+    border-color: rgba(202, 138, 4, 0.38);
+    background: rgba(202, 138, 4, 0.12);
+    color: #fff;
+    outline: none;
+  }
+
+  .chat-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .chat-input {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.95rem 1.1rem;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .chat-input:focus {
+    border-color: rgba(202, 138, 4, 0.42);
+    box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.12);
+  }
+
+  .chat-send {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    flex: 0 0 auto;
+  }
+
+  .chatbot-hint {
+    max-width: 18rem;
+    padding: 0.8rem 1rem;
+    border-radius: 1rem;
+    color: rgba(255,255,255,0.78);
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .chatbot-hint.hidden {
+    display: none;
+  }
+
   @media (max-width: 767px) {
     .spec-row {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
     }
+
+    .chatbot-shell {
+      right: 0.75rem;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      align-items: stretch;
+    }
+
+    .chatbot-panel {
+      width: 100%;
+    }
+
+    .chatbot-launcher {
+      align-self: flex-end;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     [data-animate], .hero-label, .hero-title, .hero-tagline, .hero-copy, .hero-ctas, .hero-scroll,
-    .bounce-arrow, .btn-gold, .btn-ghost, .glass-card, .nav-link::after, .gallery-img {
+    .bounce-arrow, .btn-gold, .btn-ghost, .glass-card, .nav-link::after, .gallery-img,
+    .chatbot-panel, .chat-chip, .chat-input {
       transition: none !important;
       animation: none !important;
       opacity: 1 !important;
@@ -757,6 +934,66 @@
   </div>
 </section>
 
+<div class="chatbot-shell" aria-live="polite">
+  <div id="chatbot-hint" class="chatbot-hint glass">
+    Concierge AI disponible para tratamientos, horario, ubicación y reservas.
+  </div>
+
+  <section id="chatbot-panel" class="chatbot-panel glass hidden" aria-label="Asistente virtual Caresthetic">
+    <div class="chatbot-body">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <div>
+          <p class="font-body text-[0.65rem] uppercase tracking-[0.28em] text-[#CA8A04] mb-1">Caresthetic AI</p>
+          <h3 class="font-heading text-xl text-white">Concierge Virtual</h3>
+        </div>
+        <button
+          type="button"
+          id="chatbot-close"
+          class="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/65 hover:text-white hover:border-white/20 transition-colors cursor-pointer"
+          aria-label="Cerrar chat"
+        >
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+
+      <div id="chatbot-messages" class="chatbot-messages" role="log" aria-live="polite" aria-label="Mensajes del asistente"></div>
+
+      <div class="chat-quick-actions" aria-label="Preguntas rápidas">
+        <button type="button" class="chat-chip" data-chat-prompt="¿Qué tratamientos ofrecen?">Tratamientos</button>
+        <button type="button" class="chat-chip" data-chat-prompt="¿Dónde están ubicados?">Ubicación</button>
+        <button type="button" class="chat-chip" data-chat-prompt="¿Cuál es el horario?">Horario</button>
+        <button type="button" class="chat-chip" data-chat-prompt="Quiero reservar una consulta">Reservar</button>
+      </div>
+
+      <form id="chatbot-form" class="chat-form">
+        <label for="chatbot-input" class="sr-only">Escribe tu mensaje</label>
+        <input
+          id="chatbot-input"
+          class="chat-input"
+          type="text"
+          name="message"
+          placeholder="Pregúntame sobre tratamientos o reservas"
+          autocomplete="off"
+        >
+        <button type="submit" class="btn-gold chat-send cursor-pointer" aria-label="Enviar mensaje">
+          <i class="ri-arrow-up-line text-base"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <button
+    type="button"
+    id="chatbot-toggle"
+    class="btn-gold chatbot-launcher cursor-pointer"
+    aria-expanded="false"
+    aria-controls="chatbot-panel"
+    aria-label="Abrir asistente virtual"
+  >
+    <i class="ri-customer-service-2-line text-2xl"></i>
+  </button>
+</div>
+
 <footer class="py-10 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
     <a href="#hero" class="font-heading font-bold text-white/60 hover:text-white transition-colors duration-200" style="letter-spacing:0.2em; font-size:0.9rem;">
@@ -828,6 +1065,193 @@
       bar3.style.transform = '';
       bar3.style.width = '';
     });
+  });
+
+  const chatbotPanel = document.getElementById('chatbot-panel');
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotForm = document.getElementById('chatbot-form');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotHint = document.getElementById('chatbot-hint');
+  const contactSection = document.getElementById('contact');
+  const contactService = document.getElementById('service');
+  const contactMessage = document.getElementById('message');
+
+  const chatbotState = {
+    seeded: false,
+    open: false,
+  };
+
+  function appendChatMessage(sender, text) {
+    const wrapper = document.createElement('div');
+    wrapper.className = `chat-message ${sender}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = text;
+
+    wrapper.appendChild(bubble);
+    chatbotMessages.appendChild(wrapper);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function openChatbot() {
+    chatbotState.open = true;
+    chatbotPanel.classList.remove('hidden');
+    chatbotToggle.setAttribute('aria-expanded', 'true');
+    chatbotHint.classList.add('hidden');
+
+    if (!chatbotState.seeded) {
+      appendChatMessage('bot', 'Hola. Soy el concierge virtual de Caresthetic. Puedo orientarte sobre tratamientos, ubicación, horario y ayudarte a reservar una consulta.');
+      appendChatMessage('bot', 'Puedes preguntarme, por ejemplo: "¿Qué tratamiento recomiendan para rejuvenecimiento?" o "Quiero reservar".');
+      chatbotState.seeded = true;
+    }
+
+    window.setTimeout(() => chatbotInput.focus(), 120);
+  }
+
+  function closeChatbot() {
+    chatbotState.open = false;
+    chatbotPanel.classList.add('hidden');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function scrollToBooking(serviceName, note) {
+    contactSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+
+    if (serviceName && contactService) {
+      const option = Array.from(contactService.options).find((item) => item.value === serviceName);
+      if (option) {
+        contactService.value = serviceName;
+      }
+    }
+
+    if (note && contactMessage && !contactMessage.value.trim()) {
+      contactMessage.value = note;
+    }
+  }
+
+  function getChatbotReply(message) {
+    const normalized = message
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+    const wantsBooking = /(reserv|consulta|agendar|cita|appointment|book)/.test(normalized);
+    const asksLocation = /(donde|ubic|direccion|mapa|san juan|americas)/.test(normalized);
+    const asksHours = /(horario|hora|abren|cierran|atienden|schedule)/.test(normalized);
+    const asksContact = /(telefono|email|correo|contacto|llamar|whatsapp)/.test(normalized);
+    const asksTreatments = /(tratamiento|servicio|ofrecen|botox|xeomin|relleno|acido|anti edad|rejuvenec)/.test(normalized);
+
+    if (/(botox)/.test(normalized)) {
+      return {
+        text: 'Ofrecemos Bótox para suavizar líneas de expresión con un resultado natural y elegante. Si deseas, puedo llevarte al formulario y dejar ese tratamiento seleccionado.',
+        action: () => scrollToBooking('Bótox', 'Hola, me interesa una consulta para Bótox y quisiera orientación personalizada.'),
+      };
+    }
+
+    if (/(xeomin)/.test(normalized)) {
+      return {
+        text: 'Xeomin es una de las opciones de neuromodulación disponibles en Caresthetic para una expresión descansada y refinada. Puedo prepararte la reserva con Xeomin seleccionado.',
+        action: () => scrollToBooking('Xeomin', 'Hola, me interesa una consulta para Xeomin y quisiera conocer si soy candidato(a).'),
+      };
+    }
+
+    if (/(relleno|fillers)/.test(normalized)) {
+      return {
+        text: 'Trabajamos rellenos dérmicos para volumen estratégico y contorno facial con resultados sutiles. Si quieres, te llevo al formulario con Rellenos Dérmicos ya marcados.',
+        action: () => scrollToBooking('Rellenos Dérmicos', 'Hola, me interesa una evaluación para rellenos dérmicos.'),
+      };
+    }
+
+    if (/(acido hialuron|hialuron)/.test(normalized)) {
+      return {
+        text: 'El ácido hialurónico se utiliza para hidratación profunda, soporte dérmico y armonía facial. También puedo dirigirte al formulario con ese tratamiento listo.',
+        action: () => scrollToBooking('Ácido Hialurónico', 'Hola, me interesa una consulta sobre ácido hialurónico y opciones recomendadas.'),
+      };
+    }
+
+    if (/(anti edad|rejuvenec)/.test(normalized)) {
+      return {
+        text: 'Caresthetic ofrece estrategias anti-edad y de rejuvenecimiento orientadas a mejorar tono, firmeza y frescura sin perder naturalidad. Te puedo dirigir al formulario con Anti-Edad seleccionado.',
+        action: () => scrollToBooking('Anti-Edad', 'Hola, busco una consulta de rejuvenecimiento/anti-edad y quisiera recomendaciones.'),
+      };
+    }
+
+    if (wantsBooking) {
+      return {
+        text: 'Perfecto. Puedes reservar desde el formulario al final de la página. Te ayudo a llegar allí ahora mismo para que completes nombre, contacto y tratamiento de interés.',
+        action: () => scrollToBooking('', 'Hola, deseo reservar una consulta y conocer el tratamiento más adecuado para mí.'),
+      };
+    }
+
+    if (asksLocation) {
+      return {
+        text: 'Caresthetic está en Clínica Las Américas, Suite 501, San Juan, Puerto Rico. En la sección de contacto también encontrarás el enlace directo al mapa.',
+      };
+    }
+
+    if (asksHours) {
+      return {
+        text: 'El horario mostrado en la página es lunes a viernes de 9:00 AM a 7:00 PM y sábados de 10:00 AM a 5:00 PM.',
+      };
+    }
+
+    if (asksContact) {
+      return {
+        text: 'Puedes comunicarte al 787.468.8050 o escribir a booking@carestheticpr.com. Si prefieres, también puedes dejar tus datos en el formulario de consulta.',
+      };
+    }
+
+    if (asksTreatments) {
+      return {
+        text: 'Los tratamientos destacados incluyen Bótox, Anti-Edad, Xeomin, Rellenos Dérmicos, Medicina Estética y Ácido Hialurónico. Si me dices tu objetivo, te oriento hacia una opción adecuada.',
+      };
+    }
+
+    return {
+      text: 'Puedo ayudarte con tratamientos, ubicación, horario, contacto y reservas. Si buscas una evaluación personalizada, usa "Quiero reservar" y te llevo directo al formulario.',
+    };
+  }
+
+  chatbotToggle.addEventListener('click', () => {
+    if (chatbotState.open) {
+      closeChatbot();
+    } else {
+      openChatbot();
+    }
+  });
+
+  chatbotClose.addEventListener('click', closeChatbot);
+
+  document.querySelectorAll('[data-chat-prompt]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const prompt = button.getAttribute('data-chat-prompt');
+      openChatbot();
+      appendChatMessage('user', prompt);
+      const reply = getChatbotReply(prompt);
+      window.setTimeout(() => {
+        appendChatMessage('bot', reply.text);
+        if (typeof reply.action === 'function') reply.action();
+      }, 180);
+    });
+  });
+
+  chatbotForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = chatbotInput.value.trim();
+    if (!value) return;
+
+    openChatbot();
+    appendChatMessage('user', value);
+    chatbotInput.value = '';
+
+    const reply = getChatbotReply(value);
+    window.setTimeout(() => {
+      appendChatMessage('bot', reply.text);
+      if (typeof reply.action === 'function') reply.action();
+    }, 240);
   });
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
