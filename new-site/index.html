@@ -21,9 +21,9 @@
         },
         colors: {
           gold: {
-            DEFAULT: '#CA8A04',
-            light: '#EAB308',
-            dim: '#92400E',
+            DEFAULT: '#E2C3B1',
+            light: '#E2C3B1',
+            dim: '#C7AC9C',
           },
         },
       },
@@ -33,12 +33,12 @@
 
 <style>
   :root {
-    --gold: #CA8A04;
-    --gold-light: #EAB308;
+    --gold: #E2C3B1;
+    --gold-light: #C7AC9C;
     --glass-bg: rgba(255, 255, 255, 0.04);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-hover: rgba(202, 138, 4, 0.12);
-    --glass-hover-border: rgba(202, 138, 4, 0.3);
+    --glass-hover: rgba(226, 195, 177, 0.12);
+    --glass-hover-border: rgba(226, 195, 177, 0.32);
     --text-dim: rgba(255, 255, 255, 0.58);
   }
 
@@ -59,8 +59,8 @@
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #050505; }
-  ::-webkit-scrollbar-thumb { background: rgba(202, 138, 4, 0.45); border-radius: 999px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(234, 179, 8, 0.75); }
+  ::-webkit-scrollbar-thumb { background: rgba(226, 195, 177, 0.45); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(226, 195, 177, 0.75); }
 
   .font-heading { font-family: 'Bodoni Moda', Georgia, serif; }
   .font-body { font-family: 'Jost', system-ui, sans-serif; }
@@ -84,7 +84,7 @@
   .glass-card:hover {
     background: var(--glass-hover);
     border-color: var(--glass-hover-border);
-    box-shadow: 0 0 40px rgba(202, 138, 4, 0.08);
+    box-shadow: 0 0 40px rgba(226, 195, 177, 0.1);
     transform: translateY(-2px);
   }
 
@@ -142,7 +142,7 @@
     left: 0;
     height: 2px;
     width: 0%;
-    background: linear-gradient(90deg, #CA8A04, #EAB308);
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
     z-index: 100;
     transition: width 0.04s linear;
   }
@@ -191,17 +191,14 @@
   }
 
   .gold-text {
-    background: linear-gradient(135deg, #CA8A04 0%, #EAB308 50%, #CA8A04 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--gold);
   }
 
   .btn-gold {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #CA8A04, #EAB308);
+    background: var(--gold);
     color: #000;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -212,9 +209,9 @@
   }
 
   .btn-gold:hover {
-    opacity: 0.92;
+    background: var(--gold-light);
     transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(202, 138, 4, 0.35);
+    box-shadow: 0 8px 30px rgba(226, 195, 177, 0.28);
   }
 
   .btn-ghost {
@@ -238,11 +235,11 @@
   .divider {
     width: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #CA8A04, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
   .spec-row {
-    border-bottom: 1px solid rgba(202, 138, 4, 0.12);
+    border-bottom: 1px solid rgba(226, 195, 177, 0.14);
     transition: background 0.2s ease;
   }
 
@@ -256,7 +253,7 @@
     transform: translateX(-50%);
     width: 60%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #CA8A04, #EAB308, #CA8A04, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
   }
 
   .field-label {
@@ -285,7 +282,7 @@
   }
 
   .input-field::placeholder { color: rgba(255,255,255,0.28); }
-  .input-field:focus { border-bottom-color: rgba(202, 138, 4, 0.82); }
+  .input-field:focus { border-bottom-color: rgba(226, 195, 177, 0.82); }
 
   select.input-field option {
     background: #111;
@@ -342,7 +339,7 @@
     width: 4rem;
     height: 4rem;
     border-radius: 999px;
-    box-shadow: 0 18px 40px rgba(202, 138, 4, 0.28);
+    box-shadow: 0 18px 40px rgba(226, 195, 177, 0.28);
   }
 
   .chatbot-body {
@@ -384,7 +381,7 @@
   }
 
   .chat-message.user .chat-bubble {
-    background: linear-gradient(135deg, rgba(202, 138, 4, 0.9), rgba(234, 179, 8, 0.92));
+    background: linear-gradient(135deg, rgba(226, 195, 177, 0.9), rgba(199, 172, 156, 0.92));
     color: #090909;
     border-bottom-right-radius: 0.45rem;
   }
@@ -418,8 +415,8 @@
 
   .chat-chip:hover,
   .chat-chip:focus-visible {
-    border-color: rgba(202, 138, 4, 0.38);
-    background: rgba(202, 138, 4, 0.12);
+    border-color: rgba(226, 195, 177, 0.38);
+    background: rgba(226, 195, 177, 0.12);
     color: #fff;
     outline: none;
   }
@@ -447,8 +444,8 @@
   }
 
   .chat-input:focus {
-    border-color: rgba(202, 138, 4, 0.42);
-    box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.12);
+    border-color: rgba(226, 195, 177, 0.42);
+    box-shadow: 0 0 0 4px rgba(226, 195, 177, 0.12);
   }
 
   .chat-send {
@@ -568,7 +565,7 @@
   <div class="hero-overlay"></div>
 
   <div style="position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 920px;">
-    <p class="hero-label font-body text-xs tracking-widest uppercase mb-6" style="color: #CA8A04; letter-spacing: 0.3em;">
+    <p class="hero-label font-body text-xs tracking-widest uppercase mb-6" style="color: var(--gold); letter-spacing: 0.3em;">
       San Juan · Puerto Rico
     </p>
 
@@ -601,7 +598,7 @@
 <section id="services" class="py-32 px-6">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-20" data-animate>
-      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Servicios</p>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">Servicios</p>
       <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
         Tratamientos diseñados para<br><em class="not-italic gold-text">realzar, no transformar</em>
       </h2>
@@ -611,7 +608,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.05s;">
         <div class="mb-6">
-          <i class="ri-sparkling-2-line text-3xl" style="color:#CA8A04;"></i>
+          <i class="ri-sparkling-2-line text-3xl" style="color:var(--gold);"></i>
         </div>
         <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Rejuvenecimiento de la Piel</h3>
         <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
@@ -621,7 +618,7 @@
 
       <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.12s;">
         <div class="mb-6">
-          <i class="ri-drop-line text-3xl" style="color:#CA8A04;"></i>
+          <i class="ri-drop-line text-3xl" style="color:var(--gold);"></i>
         </div>
         <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Inyectables de Precisión</h3>
         <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
@@ -631,7 +628,7 @@
 
       <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.19s;">
         <div class="mb-6">
-          <i class="ri-scan-2-line text-3xl" style="color:#CA8A04;"></i>
+          <i class="ri-scan-2-line text-3xl" style="color:var(--gold);"></i>
         </div>
         <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Tecnología de Vanguardia</h3>
         <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
@@ -641,7 +638,7 @@
 
       <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.26s;">
         <div class="mb-6">
-          <i class="ri-user-heart-line text-3xl" style="color:#CA8A04;"></i>
+          <i class="ri-user-heart-line text-3xl" style="color:var(--gold);"></i>
         </div>
         <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Atención Personalizada</h3>
         <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.98rem; line-height:1.75;">
@@ -655,7 +652,7 @@
 <section id="about" class="py-32 px-6 overflow-hidden">
   <div class="max-w-5xl mx-auto">
     <div class="mb-16" data-animate>
-      <p class="font-body text-xs tracking-widest uppercase mb-6" style="color:#CA8A04; letter-spacing:0.3em;">Nosotros</p>
+      <p class="font-body text-xs tracking-widest uppercase mb-6" style="color:var(--gold); letter-spacing:0.3em;">Nosotros</p>
       <h2 class="font-heading font-bold text-white leading-none" style="font-size: clamp(2.5rem, 7vw, 6rem); line-height: 1.05;">
         Donde la medicina estética<br><em class="not-italic gold-text">se siente editorial</em>
       </h2>
@@ -664,7 +661,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       <div data-animate style="transition-delay:0.1s;">
         <p class="font-body font-light text-white/55 leading-loose" style="font-size:1.05rem; line-height:1.9;">
-          Caresthetic es una clínica de medicina estética ubicada en la Clínica Las Américas, suite 501, en San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona.
+          Caresthetic es una clínica de medicina estética ubicada en 1064 Ave Ponce de Leon, suite 205, San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona.
         </p>
       </div>
       <div data-animate style="transition-delay:0.2s;">
@@ -694,7 +691,7 @@
 <section id="treatments" class="py-32 px-6">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-20" data-animate>
-      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Tratamientos</p>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">Tratamientos</p>
       <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
         Portafolio clínico con una<br><em class="not-italic gold-text">presentación de lujo</em>
       </h2>
@@ -716,7 +713,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Inyectables</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Inyectables</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Bótox</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Suaviza líneas de expresión y rejuvenece el rostro sin perder naturalidad.
@@ -738,7 +735,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Rejuvenecimiento</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Rejuvenecimiento</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Anti-Edad</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Estrategias integrales para mejorar tono, firmeza y vitalidad visible.
@@ -761,7 +758,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Inyectables</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Inyectables</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Xeomin</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Neuromodulación precisa para una expresión descansada, fresca y elegante.
@@ -783,7 +780,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Rellenos</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Rellenos</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Rellenos Dérmicos</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Volumen estratégico y contorno facial con acabados sutiles y armónicos.
@@ -805,7 +802,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Integral</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Integral</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Medicina Estética</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Planes clínicos personalizados para cuidar piel, estructura y proporción.
@@ -827,7 +824,7 @@
           </video>
         </div>
         <div class="p-8">
-          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:#CA8A04; letter-spacing:0.18em;">Hidratación</p>
+          <p class="font-body text-xs tracking-widest uppercase mb-3" style="color:var(--gold); letter-spacing:0.18em;">Hidratación</p>
           <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.7rem;">Ácido Hialurónico</h3>
           <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
             Hidratación profunda y soporte dérmico para una apariencia luminosa y plena.
@@ -841,7 +838,7 @@
 <section id="details" class="py-32 px-6">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16" data-animate>
-      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:#CA8A04; letter-spacing:0.3em;">Detalles</p>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">Detalles</p>
       <h2 class="font-heading font-bold text-white" style="font-size: clamp(2rem, 4.5vw, 3.2rem);">
         Experiencia Caresthetic
       </h2>
@@ -855,11 +852,11 @@
       </div>
       <div class="spec-row flex items-center px-8 py-5">
         <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Ubicación</span>
-        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Clínica Las Américas, Suite 501, San Juan</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">1064 Ave Ponce de Leon, Suite 205, San Juan, Puerto Rico</span>
       </div>
       <div class="spec-row flex items-center px-8 py-5">
         <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Horario</span>
-        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Lun–Vie 9:00 AM–7:00 PM · Sáb 10:00 AM–5:00 PM</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Lunes a Viernes 9:00 AM–5:00 PM · Sábados alternos 9:00 AM–12:00 PM</span>
       </div>
       <div class="spec-row flex items-center px-8 py-5">
         <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Especialidad</span>
@@ -871,7 +868,7 @@
       </div>
       <div class="spec-row flex items-center px-8 py-5">
         <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Enfoque</span>
-        <span class="font-body text-white font-medium text-sm w-full md:w-1/2" style="color:#CA8A04;">Personalizado · Seguro · Refinado</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2" style="color:var(--gold);">Personalizado · Seguro · Refinado</span>
       </div>
     </div>
   </div>
@@ -883,7 +880,7 @@
 
   <div class="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 text-left">
     <div data-animate>
-      <p class="font-body text-xs tracking-widest uppercase mb-6 text-center lg:text-left" style="color:#CA8A04; letter-spacing:0.3em;">Contacto</p>
+      <p class="font-body text-xs tracking-widest uppercase mb-6 text-center lg:text-left" style="color:var(--gold); letter-spacing:0.3em;">Contacto</p>
       <h2 class="font-heading font-bold text-white mb-6 leading-tight text-center lg:text-left" style="font-size: clamp(2.2rem, 6vw, 4.5rem);">
         Agenda una experiencia<br><em class="not-italic gold-text">a tu medida</em>
       </h2>
@@ -894,7 +891,7 @@
       <div class="glass rounded-3xl overflow-hidden">
         <div class="spec-row flex items-center px-8 py-5">
           <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Dirección</span>
-          <a href="https://maps.app.goo.gl/y4wg5qGeRjkxeQBy9" target="_blank" rel="noopener" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">Clínica Las Américas, Suite 501</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=1064%20Ave%20Ponce%20de%20Leon%20Suite%20205%2C%20San%20Juan%2C%20Puerto%20Rico" target="_blank" rel="noopener" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">1064 Ave Ponce de Leon, Suite 205, San Juan, Puerto Rico</a>
         </div>
         <div class="spec-row flex items-center px-8 py-5">
           <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Teléfono</span>
@@ -963,7 +960,7 @@
     <div class="chatbot-body">
       <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
         <div>
-          <p class="font-body text-[0.65rem] uppercase tracking-[0.28em] text-[#CA8A04] mb-1">Caresthetic AI</p>
+          <p class="font-body text-[0.65rem] uppercase tracking-[0.28em] mb-1" style="color:var(--gold);">Caresthetic AI</p>
           <h3 class="font-heading text-xl text-white">Concierge Virtual</h3>
         </div>
         <button
@@ -1212,13 +1209,13 @@
 
     if (asksLocation) {
       return {
-        text: 'Caresthetic está en Clínica Las Américas, Suite 501, San Juan, Puerto Rico. En la sección de contacto también encontrarás el enlace directo al mapa.',
+        text: 'Caresthetic está en 1064 Ave Ponce de Leon, Suite 205, San Juan, Puerto Rico. En la sección de contacto también encontrarás el enlace directo al mapa.',
       };
     }
 
     if (asksHours) {
       return {
-        text: 'El horario mostrado en la página es lunes a viernes de 9:00 AM a 7:00 PM y sábados de 10:00 AM a 5:00 PM.',
+        text: 'El horario mostrado en la página es lunes a viernes de 9:00 AM a 5:00 PM y sábados alternos de 9:00 AM a 12:00 PM.',
       };
     }
 
