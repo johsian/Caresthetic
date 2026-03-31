@@ -485,6 +485,53 @@
     opacity: 1;
   }
 
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    color: rgba(255,255,255,0.38);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .social-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .social-link i {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    line-height: 1;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: #fff;
+    border-color: rgba(226, 195, 177, 0.4);
+    background: rgba(226, 195, 177, 0.08);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
   @media (max-width: 767px) {
     .spec-row {
       flex-direction: column;
@@ -1025,15 +1072,15 @@
       © 2026 Caresthetic. Todos los derechos reservados.
     </p>
 
-    <div class="flex items-center gap-5">
-      <a href="https://instagram.com/carestheticpr" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Instagram">
-        <i class="ri-instagram-line text-lg"></i>
+    <div class="flex items-center gap-5 md:mr-20">
+      <a href="https://instagram.com/carestheticpr" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+        <span class="social-icon"><i class="ri-instagram-line text-lg"></i></span>
       </a>
-      <a href="https://www.threads.com/@carestheticpr?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Threads">
-        <i class="ri-threads-line text-lg"></i>
+      <a href="https://www.threads.com/@carestheticpr?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="social-link" aria-label="Threads">
+        <span class="social-icon"><i class="ri-threads-line text-lg"></i></span>
       </a>
-      <a href="https://www.facebook.com/people/Caresthetic/100092566654430/" target="_blank" rel="noopener" class="text-white/30 hover:text-white/80 transition-colors duration-200 cursor-pointer" aria-label="Facebook">
-        <i class="ri-facebook-line text-lg"></i>
+      <a href="https://www.facebook.com/people/Caresthetic/100092566654430/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+        <span class="social-icon"><i class="ri-facebook-line text-lg"></i></span>
       </a>
     </div>
   </div>
@@ -1098,7 +1145,6 @@
   const contactSection = document.getElementById('contact');
   const contactService = document.getElementById('service');
   const contactMessage = document.getElementById('message');
-  const clinicBookingUrl = 'https://www.facebook.com/people/Caresthetic/100092566654430/';
 
   const chatbotState = {
     seeded: false,
@@ -1154,10 +1200,6 @@
     }
   }
 
-  function openClinicBookingPage() {
-    window.open(clinicBookingUrl, '_blank', 'noopener');
-  }
-
   function getChatbotReply(message) {
     const normalized = message
       .normalize('NFD')
@@ -1207,11 +1249,8 @@
 
     if (wantsBooking) {
       return {
-        text: 'Perfecto. Puedes reservar desde el formulario al final de la página o ir directo a nuestra página de citas en Facebook. Te llevaré al formulario y también abriré la página de citas en una nueva pestaña.',
-        action: () => {
-          scrollToBooking('', 'Hola, deseo reservar una consulta y conocer el tratamiento más adecuado para mí.');
-          openClinicBookingPage();
-        },
+        text: 'Perfecto. Puedes reservar llenando el formulario al final de la página. Te llevaré allí ahora mismo y dejaré un mensaje inicial para que completes tus datos.',
+        action: () => scrollToBooking('', 'Hola, deseo reservar una consulta y conocer el tratamiento más adecuado para mí.'),
       };
     }
 
