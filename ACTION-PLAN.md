@@ -2,7 +2,10 @@
 
 ## 🔴 Critical — do this week
 
-### 1. Fix the booking form (every lead is currently lost)
+### 1. Fix the booking form — ✅ DONE (Option A: FormSubmit)
+Form now posts to FormSubmit.co → emails booking@carestheticpr.com → redirects to /gracias.html. Dead reCAPTCHA removed; honeypot anti-spam added. **One-time step: click the activation link FormSubmit sends to booking@carestheticpr.com after the first submission.**
+
+Original notes:
 The form posts to `send-consulta.php` → **403 on Vercel** (PHP never runs there). Options, best first:
 
 - **A. Formspree / Web3Forms / FormSubmit (fastest, ~15 min):** free form-to-email service; point `action` at their endpoint with `booking@carestheticpr.com`; set redirect to `/gracias.html` (already built). No code needed beyond one attribute.
