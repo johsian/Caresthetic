@@ -14,7 +14,7 @@
     },
     {
       "source": "/tizo",
-      "destination": "/new-site/tizo/index.html"
+      "destination": "/new-site/tizo.html"
     },
     {
       "source": "/(.*)",
