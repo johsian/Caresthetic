@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protector Solar TiZO — Caresthetic · San Juan, Puerto Rico</title>
+<meta name="description" content="Caresthetic ofrece TiZO, protector solar mineral facial con óxidos de titanio y zinc, antioxidantes C y E, SPF 40 de amplio espectro. Disponible en nuestra clínica en San Juan, Puerto Rico.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://carestheticpr.com/tizo">
+<link rel="icon" type="image/png" sizes="480x480" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:locale" content="es_PR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Caresthetic">
+<meta property="og:title" content="Protector Solar TiZO — Caresthetic">
+<meta property="og:description" content="Caresthetic recomienda TiZO: protector solar mineral facial SPF 40 de amplio espectro. Disponible en San Juan, Puerto Rico.">
+<meta property="og:url" content="https://carestheticpr.com/tizo">
+<meta property="og:image" content="https://carestheticpr.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['"Bodoni Moda"', 'Georgia', 'serif'],
+          body: ['Jost', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          gold: {
+            DEFAULT: '#E2C3B1',
+            light: '#E2C3B1',
+            dim: '#C7AC9C',
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --gold: #E2C3B1;
+    --gold-light: #C7AC9C;
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(226, 195, 177, 0.12);
+    --glass-hover-border: rgba(226, 195, 177, 0.32);
+    --text-dim: rgba(255, 255, 255, 0.58);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Jost', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { text-decoration: none; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: rgba(226, 195, 177, 0.45); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(226, 195, 177, 0.75); }
+
+  .font-heading { font-family: 'Bodoni Moda', Georgia, serif; }
+  .font-body { font-family: 'Jost', system-ui, sans-serif; }
+
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+
+  .glass-card:hover {
+    background: var(--glass-hover);
+    border-color: var(--glass-hover-border);
+    box-shadow: 0 0 40px rgba(226, 195, 177, 0.1);
+    transform: translateY(-2px);
+  }
+
+  #navbar {
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+  }
+
+  #navbar.scrolled {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover { color: #fff; }
+  .nav-link:hover::after { width: 100%; }
+
+  .gold-text { color: var(--gold); }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(226, 195, 177, 0.28);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-1px);
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .spec-row {
+    border-bottom: 1px solid rgba(226, 195, 177, 0.14);
+    transition: background 0.2s ease;
+  }
+
+  .spec-row:hover { background: rgba(255, 255, 255, 0.02); }
+  .spec-row:last-child { border-bottom: none; }
+
+  .cta-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.2) 28%,
+      rgba(0, 0, 0, 0.4) 62%,
+      rgba(0, 0, 0, 0.9) 86%,
+      #000 100%
+    );
+    z-index: 2;
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-label { animation: fadeUp 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-title { animation: fadeUp 0.9s 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-tagline { animation: fadeUp 0.9s 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-copy { animation: fadeUp 0.9s 0.75s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-ctas { animation: fadeUp 0.9s 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-scroll { animation: fadeUp 0.9s 1.15s cubic-bezier(0.16,1,0.3,1) both; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bounce-arrow { animation: bounceSlow 2.2s ease-in-out infinite; }
+
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(9px); }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .float-1 { animation: floatSlow 7s ease-in-out infinite; }
+  .float-2 { animation: floatSlow 8s ease-in-out infinite 0.6s; }
+
+  .brand-logo {
+    display: block;
+    height: 3rem;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .footer-logo {
+    height: 2.4rem;
+    opacity: 0.82;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-logo:hover { opacity: 1; }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    color: rgba(255,255,255,0.38);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: #fff;
+    border-color: rgba(226, 195, 177, 0.4);
+    background: rgba(226, 195, 177, 0.08);
+    transform: translateY(-1px);
+  }
+
+  #mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #mobile-menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .product-img {
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate], .hero-label, .hero-title, .hero-tagline, .hero-copy, .hero-ctas, .hero-scroll,
+    .bounce-arrow, .btn-gold, .btn-ghost, .glass-card, .nav-link::after, .float-1, .float-2 {
+      transition: none !important;
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .spec-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>
+</head>
+
+<body class="text-white font-body">
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="/" class="flex items-center" aria-label="Caresthetic home">
+      <img src="logo.png" alt="Caresthetic" class="brand-logo">
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Inicio</a>
+      <a href="#productos" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Productos</a>
+      <a href="#ciencia" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">La Ciencia</a>
+      <a href="#comprar" class="btn-gold text-xs px-5 py-2.5 rounded-full" style="min-width:140px;">Comprar</a>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer" aria-label="Toggle menu">
+      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar1"></span>
+      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar2"></span>
+      <span class="block w-4 h-px bg-white transition-all duration-300 self-end" id="bar3"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="glass mt-3 mx-0 rounded-2xl p-6 flex flex-col gap-5">
+      <a href="/" class="font-body text-white/70 tracking-wider uppercase text-sm">Inicio</a>
+      <a href="#productos" class="font-body text-white/70 tracking-wider uppercase text-sm">Productos</a>
+      <a href="#ciencia" class="font-body text-white/70 tracking-wider uppercase text-sm">La Ciencia</a>
+      <a href="#comprar" class="btn-gold text-xs px-5 py-3 rounded-full text-center">Comprar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+  <video autoplay muted loop playsinline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.02);">
+    <source src="tizo-assets/videos/glam-product-ad.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div style="position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 920px;">
+    <p class="hero-label font-body text-xs tracking-widest uppercase mb-6" style="color: var(--gold); letter-spacing: 0.3em;">
+      Caresthetic &middot; Productos
+    </p>
+
+    <h1 class="hero-title font-heading font-bold text-white leading-none mb-6" style="font-size: clamp(2.8rem, 9vw, 6.5rem); letter-spacing: -0.01em;">
+      Protecci&oacute;n Solar<br><em class="not-italic gold-text">de Grado M&eacute;dico</em>
+    </h1>
+
+    <p class="hero-tagline font-body font-light text-white/60 mb-3 tracking-widest uppercase" style="font-size: clamp(0.8rem, 1.6vw, 1rem); letter-spacing: 0.25em;">
+      Recomendado por el Dr. Carlos R. Cardona
+    </p>
+
+    <p class="hero-copy font-body font-light text-white/50 mx-auto mb-10 leading-loose" style="max-width: 600px; font-size: clamp(1rem, 1.5vw, 1.12rem);">
+      En Caresthetic seleccionamos productos que cumplen con nuestros est&aacute;ndares cl&iacute;nicos. TiZO es el protector solar mineral que recomendamos a nuestros pacientes: protecci&oacute;n f&iacute;sica de amplio espectro con un acabado invisible.
+    </p>
+
+    <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#comprar" class="btn-gold text-sm px-10 py-4 rounded-full" style="min-width:190px;">Comprar Ahora</a>
+      <a href="#productos" class="btn-ghost text-sm px-10 py-4 rounded-full" style="min-width:190px;">Ver Productos</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.4;">
+    <span class="font-body tracking-widest uppercase" style="letter-spacing:0.2em; font-size:0.65rem;">Scroll</span>
+    <svg class="bounce-arrow w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 3L8 13M8 13L4 9M8 13L12 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== WHY WE RECOMMEND IT ===== -->
+<section class="py-32 px-6">
+  <div class="max-w-4xl mx-auto text-center" data-animate>
+    <p class="font-body text-xs tracking-widest uppercase mb-6" style="color:var(--gold); letter-spacing:0.3em;">Por qu&eacute; lo recomendamos</p>
+    <p class="font-heading font-light text-white/55 leading-loose" style="font-size: clamp(1.3rem, 3vw, 2rem); line-height: 1.6;">
+      En nuestra cl&iacute;nica, la protecci&oacute;n solar es parte esencial de cada tratamiento.
+      TiZO suspende <em class="not-italic gold-text">&oacute;xidos de titanio y zinc</em> en una base liviana, fortificada con
+      <em class="not-italic gold-text">antioxidantes C y E</em> &mdash; defensa f&iacute;sica que complementa y protege los resultados de nuestros procedimientos.
+    </p>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="productos" class="py-32 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">Nuestros Productos</p>
+      <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Protector solar mineral<br><em class="not-italic gold-text">seleccionado por Caresthetic</em>
+      </h2>
+      <div class="divider mx-auto mt-6"></div>
+    </div>
+
+    <!-- TiZO3 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+      <div class="relative flex items-end justify-center" style="min-height: 400px;" data-animate>
+        <div style="position:absolute; width:70%; height:70%; left:15%; top:10%; background:radial-gradient(circle, rgba(226,195,177,0.12) 0%, transparent 70%); filter:blur(20px);"></div>
+        <img src="tizo-assets/images/tizo3-box.png" alt="TiZO3 Tinted Primer Sunscreen box, SPF 40" class="product-img float-1 relative z-10" style="width:42%; margin-right:-3%;">
+        <img src="tizo-assets/images/tizo3-tube.png" alt="TiZO3 Tinted Primer Sunscreen tube, SPF 40" class="product-img float-2 relative z-10" style="width:46%;">
+      </div>
+
+      <div data-animate style="transition-delay: 0.12s;">
+        <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">TiZO3 &mdash; Tinted</p>
+        <h3 class="font-heading font-bold text-white leading-tight mb-3" style="font-size: clamp(2rem, 4vw, 3rem);">
+          Primer / Sunscreen
+        </h3>
+        <p class="font-body font-medium gold-text tracking-wider mb-6" style="font-size:0.85rem; letter-spacing:0.08em;">
+          SPF 40 &nbsp;&middot;&nbsp; PA+++ &nbsp;&middot;&nbsp; Broad Spectrum
+        </p>
+
+        <p class="font-body font-light text-white/55 leading-loose mb-8" style="font-size:1.02rem; line-height:1.85; max-width:34rem;">
+          Un velo de tono universal que difumina imperfecciones mientras los &oacute;xidos de titanio y zinc brindan protecci&oacute;n de amplio espectro. Resistente al agua por 80 minutos. Ideal como primer bajo maquillaje o solo para un acabado luminoso mate.
+        </p>
+
+        <div class="glass rounded-2xl overflow-hidden mb-8">
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">SPF</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Broad Spectrum SPF 40, PA+++</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Filtros</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">&Oacute;xidos de Titanio &amp; Zinc</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Antioxidantes</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Vitaminas C &amp; E</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Resistencia</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Agua &mdash; 80 Minutos</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Acabado</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Mate Transparente con Tinte</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Contenido</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">1.75 oz / 50 g</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#comprar" class="btn-gold text-sm px-8 py-3.5 rounded-full">Comprar TiZO3</a>
+          <a href="#comprar" class="btn-ghost text-sm px-8 py-3.5 rounded-full">Consultar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TiZO2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="order-2 lg:order-1" data-animate style="transition-delay: 0.12s;">
+        <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">TiZO2 &mdash; Non-Tinted</p>
+        <h3 class="font-heading font-bold text-white leading-tight mb-3" style="font-size: clamp(2rem, 4vw, 3rem);">
+          Primer / Sunscreen
+        </h3>
+        <p class="font-body font-medium gold-text tracking-wider mb-6" style="font-size:0.85rem; letter-spacing:0.08em;">
+          SPF 40 &nbsp;&middot;&nbsp; PA++++ &nbsp;&middot;&nbsp; Broad Spectrum
+        </p>
+
+        <p class="font-body font-light text-white/55 leading-loose mb-8" style="font-size:1.02rem; line-height:1.85; max-width:34rem;">
+          La misma protecci&oacute;n mineral sin concesiones, formulada sin tinte para un acabado puro e invisible sobre cualquier tono de piel. &Oacute;xidos de titanio y zinc junto a antioxidantes C y E en un velo libre de brillo que se siente como nada.
+        </p>
+
+        <div class="glass rounded-2xl overflow-hidden mb-8">
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">SPF</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Broad Spectrum SPF 40, PA++++</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Filtros</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">&Oacute;xidos de Titanio &amp; Zinc</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Antioxidantes</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Vitaminas C &amp; E</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Resistencia</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Agua &mdash; 80 Minutos</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Acabado</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">Mate Transparente Sin Tinte</span>
+          </div>
+          <div class="spec-row flex items-center px-6 py-3.5">
+            <span class="font-body text-white/35 text-xs tracking-wider uppercase w-1/2" style="letter-spacing:0.1em;">Contenido</span>
+            <span class="font-body text-white font-medium text-sm w-1/2">1.75 oz / 50 g</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#comprar" class="btn-gold text-sm px-8 py-3.5 rounded-full">Comprar TiZO2</a>
+          <a href="#comprar" class="btn-ghost text-sm px-8 py-3.5 rounded-full">Consultar</a>
+        </div>
+      </div>
+
+      <div class="relative flex items-end justify-center order-1 lg:order-2" style="min-height: 400px;" data-animate>
+        <div style="position:absolute; width:70%; height:70%; left:15%; top:10%; background:radial-gradient(circle, rgba(226,195,177,0.12) 0%, transparent 70%); filter:blur(20px);"></div>
+        <img src="tizo-assets/images/tizo2-box.png" alt="TiZO2 Non-Tinted Primer Sunscreen box, SPF 40" class="product-img float-1 relative z-10" style="width:42%; margin-right:-3%;">
+        <img src="tizo-assets/images/tizo2-tube.png" alt="TiZO2 Non-Tinted Primer Sunscreen tube, SPF 40" class="product-img float-2 relative z-10" style="width:46%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA CIENCIA ===== -->
+<section id="ciencia" class="py-32 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20" data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-4" style="color:var(--gold); letter-spacing:0.3em;">La Ciencia</p>
+      <h2 class="font-heading font-bold text-white leading-tight" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+        Por qu&eacute; Caresthetic<br><em class="not-italic gold-text">elige protecci&oacute;n mineral</em>
+      </h2>
+      <div class="divider mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.05s;">
+        <div class="mb-6">
+          <svg class="w-8 h-8" style="color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5l-8-3Z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Protecci&oacute;n F&iacute;sica</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+          A diferencia de los filtros qu&iacute;micos, los minerales reflejan los rayos UV en la superficie de la piel. M&aacute;s seguro, m&aacute;s suave.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.12s;">
+        <div class="mb-6">
+          <svg class="w-8 h-8" style="color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Titanio &amp; Zinc</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+          El est&aacute;ndar de oro en defensa mineral de amplio espectro, lo suficientemente suave para uso diario durante todo el a&ntilde;o.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.19s;">
+        <div class="mb-6">
+          <svg class="w-8 h-8" style="color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21c-4-2.6-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7.4-7 10Z"/><path d="M9.5 12c1 1.4 3.5 1.4 4.5 0"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Antioxidantes C &amp; E</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+          Fortifican contra agresores ambientales y foto-envejecimiento, complementando los tratamientos que ofrecemos en cl&iacute;nica.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10" data-animate style="transition-delay: 0.26s;">
+        <div class="mb-6">
+          <svg class="w-8 h-8" style="color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8M12 8v8" stroke-linecap="round" opacity=".5"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Acabado Invisible</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+          Desaparece en la piel sin dejar rastro blanco. Un velo mate y libre de brillo, perfecto solo o bajo maquillaje.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 lg:p-10 md:col-span-2 lg:col-span-1" data-animate style="transition-delay: 0.33s;">
+        <div class="mb-6">
+          <svg class="w-8 h-8" style="color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11Z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-white mb-3" style="font-size:1.5rem;">Resistente al Agua</h3>
+        <p class="font-body font-light text-white/50 leading-relaxed" style="font-size:0.95rem; line-height:1.75;">
+          80 minutos de resistencia al agua y sudor. Ideal para el clima de Puerto Rico sin comprometer la sensaci&oacute;n en la piel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPRAR ===== -->
+<section id="comprar" class="relative py-40 px-6 text-center overflow-hidden">
+  <div class="cta-glow"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(226,195,177,0.06) 0%, transparent 70%);"></div>
+
+  <div class="relative max-w-5xl mx-auto">
+    <div data-animate>
+      <p class="font-body text-xs tracking-widest uppercase mb-6" style="color:var(--gold); letter-spacing:0.3em;">Disponible en Caresthetic</p>
+      <h2 class="font-heading font-bold text-white mb-4 leading-tight" style="font-size: clamp(2.2rem, 6vw, 4.5rem);">
+        Elige tu f&oacute;rmula<br><em class="not-italic gold-text">y prot&eacute;gete hoy</em>
+      </h2>
+      <div class="divider mx-auto mt-5 mb-16"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16">
+      <div class="glass-card rounded-3xl p-8 text-center" data-animate style="transition-delay: 0.1s;">
+        <div class="flex items-end justify-center mb-6" style="height:180px;">
+          <img src="tizo-assets/images/tizo3-tube.png" alt="TiZO3 Tube" class="product-img" style="height:160px; width:auto;">
+        </div>
+        <h3 class="font-heading font-bold text-white text-2xl mb-1">TiZO3</h3>
+        <p class="font-body text-white/40 text-xs tracking-wider uppercase mb-6" style="letter-spacing:0.1em;">Tinted &middot; SPF 40 &middot; PA+++</p>
+        <a href="https://wa.me/17874688050?text=Hola%2C%20me%20gustar%C3%ADa%20comprar%20TiZO3%20Tinted%20Sunscreen%20en%20Caresthetic" target="_blank" rel="noopener" class="btn-gold text-xs px-8 py-3.5 rounded-full w-full" style="max-width:220px;">
+          Comprar Ahora
+        </a>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 text-center" data-animate style="transition-delay: 0.18s;">
+        <div class="flex items-end justify-center mb-6" style="height:180px;">
+          <img src="tizo-assets/images/tizo2-tube.png" alt="TiZO2 Tube" class="product-img" style="height:160px; width:auto;">
+        </div>
+        <h3 class="font-heading font-bold text-white text-2xl mb-1">TiZO2</h3>
+        <p class="font-body text-white/40 text-xs tracking-wider uppercase mb-6" style="letter-spacing:0.1em;">Non-Tinted &middot; SPF 40 &middot; PA++++</p>
+        <a href="https://wa.me/17874688050?text=Hola%2C%20me%20gustar%C3%ADa%20comprar%20TiZO2%20Non-Tinted%20Sunscreen%20en%20Caresthetic" target="_blank" rel="noopener" class="btn-gold text-xs px-8 py-3.5 rounded-full w-full" style="max-width:220px;">
+          Comprar Ahora
+        </a>
+      </div>
+    </div>
+
+    <div data-animate style="transition-delay: 0.25s;">
+      <p class="font-body font-light text-white/40 mb-8 leading-relaxed" style="font-size:0.95rem;">
+        &iquest;No sabes cu&aacute;l es la f&oacute;rmula ideal para tu piel? Pregunta en tu pr&oacute;xima consulta o cont&aacute;ctanos directamente.
+      </p>
+    </div>
+
+    <div class="glass rounded-3xl overflow-hidden max-w-2xl mx-auto" data-animate style="transition-delay: 0.3s;">
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Direcci&oacute;n</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=1064%20Ave%20Ponce%20de%20Leon%20Suite%20205%2C%20San%20Juan%2C%20Puerto%20Rico" target="_blank" rel="noopener" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">1064 Ave Ponce de Leon, Suite 205, San Juan, PR</a>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Tel&eacute;fono</span>
+        <a href="tel:7874688050" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">787.468.8050</a>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Email</span>
+        <a href="mailto:booking@carestheticpr.com" class="font-body text-white font-medium text-sm w-full md:w-1/2 hover:text-white/80">booking@carestheticpr.com</a>
+      </div>
+      <div class="spec-row flex items-center px-8 py-5">
+        <span class="font-body text-white/35 text-sm tracking-wider uppercase w-full md:w-1/2" style="letter-spacing:0.1em;">Horario</span>
+        <span class="font-body text-white font-medium text-sm w-full md:w-1/2">Lunes a Viernes 9–5 PM &middot; S&aacute;bados alternos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-10 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <a href="/" class="flex items-center" aria-label="Caresthetic home">
+      <img src="logo.png" alt="Caresthetic" class="brand-logo footer-logo">
+    </a>
+
+    <p class="font-body text-white/25 text-xs tracking-wider order-last md:order-none" style="letter-spacing:0.1em;">
+      &copy; 2026 Caresthetic. Todos los derechos reservados.
+    </p>
+
+    <div class="flex items-center gap-5 md:mr-20">
+      <a href="https://instagram.com/carestheticpr" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+        <i class="ri-instagram-line text-lg"></i>
+      </a>
+      <a href="https://www.threads.com/@carestheticpr?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" class="social-link" aria-label="Threads">
+        <i class="ri-threads-line text-lg"></i>
+      </a>
+      <a href="https://www.facebook.com/people/Caresthetic/100092566654430/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+        <i class="ri-facebook-line text-lg"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.classList.remove('hidden');
+      bar1.style.transform = 'translateY(6px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-6px) rotate(-45deg)';
+      bar3.style.width = '24px';
+    } else {
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+      bar3.style.width = '';
+    }
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+      bar3.style.width = '';
+    });
+  });
+
+  const animEls = document.querySelectorAll('[data-animate]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    animEls.forEach(el => io.observe(el));
+  } else {
+    animEls.forEach(el => el.classList.add('visible'));
+  }
+
+  const heroVideo = document.querySelector('video');
+  if (heroVideo) {
+    const p = heroVideo.play();
+    if (p && p.catch) p.catch(() => {});
+  }
+</script>
+</body>
+</html>
