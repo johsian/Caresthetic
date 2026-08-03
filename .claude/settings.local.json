@@ -15,7 +15,29 @@
       "Read(//Volumes/YOCN/My Websites/**)",
       "mcp__plugin_claude-mem_mcp-search__get_observations",
       "mcp__stitch__list_screens",
-      "mcp__stitch__get_project"
+      "mcp__stitch__get_project",
+      "Skill(seo-audit)",
+      "Skill(seo-audit:*)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g format assets/images/*.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Volumes/YOCN/My Websites/Tizo/assets/images/tizo2-box.png\")",
+      "Bash(sips -g hasAlpha tizo3-box.png)",
+      "Bash(git status *)",
+      "Bash(md5 -q \"/Volumes/YOCN/My Websites/Tizo/assets/images/tizo3-box.png\" \"/Volumes/YOCN/My Websites/Caresthetic/new-site/tizo/assets/images/tizo3-box.png\")",
+      "Bash(cp \"/Volumes/YOCN/My Websites/Tizo/assets/videos/glam-product-ad.mp4\" \"/Volumes/YOCN/My Websites/Caresthetic/new-site/tizo/assets/videos/glam-product-ad.mp4\" *)",
+      "Bash(pkill -f \"http.server 4173\")",
+      "Bash(nohup python3 -m http.server 4173 --directory \"new-site\")",
+      "Bash(disown)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4173/tizo/index.html)",
+      "Bash(curl -sI http://localhost:4173/tizo/index.html)",
+      "Bash(curl -sI http://localhost:4173/tizo/)",
+      "Bash(lsof -i :4173 -sTCP:LISTEN)",
+      "Bash(kill 23175 23143)",
+      "Bash(nohup python3 -m http.server 4321 --directory \"new-site\")",
+      "Bash(curl -sI http://localhost:4321/tizo/index.html)",
+      "Bash(curl -sI http://localhost:4321/)"
     ]
   }
 }

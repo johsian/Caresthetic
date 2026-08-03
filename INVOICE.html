@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invoice CARES-2026-001 — MyNFTool LLC</title>
+<style>
+  @page { size: letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #fff;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #0d0d0d;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  header h1 {
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin: 0;
+    color: #0d0d0d;
+  }
+  .meta {
+    text-align: right;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .meta strong { color: #0d0d0d; }
+  .parties {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+  .party { flex: 1; }
+  .party h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+  .party p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .party .name { font-weight: 600; font-size: 14px; color: #0d0d0d; }
+  h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin: 28px 0 12px 0;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 6px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+  }
+  th {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    padding: 10px 8px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+  }
+  th.num, td.num { text-align: right; }
+  td {
+    padding: 14px 8px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  td.item { font-weight: 600; color: #0d0d0d; }
+  td.desc { color: #555; font-size: 12px; line-height: 1.5; }
+  tr.total td {
+    border-bottom: none;
+    border-top: 2px solid #0d0d0d;
+    padding-top: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d0d0d;
+  }
+  tr.subtotal td {
+    border-bottom: none;
+    padding-top: 10px;
+    color: #555;
+  }
+  .care-plan {
+    background: #fafafa;
+    padding: 16px 20px;
+    border-left: 3px solid #b8935e;
+    margin-top: 8px;
+    font-size: 12px;
+  }
+  .care-plan strong { color: #0d0d0d; font-size: 14px; }
+  .payment ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+  .payment li {
+    padding: 6px 0;
+    font-size: 13px;
+  }
+  .payment li::before {
+    content: "•";
+    color: #b8935e;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .deliverables ul { padding-left: 0; list-style: none; }
+  .deliverables li {
+    padding: 4px 0;
+    font-size: 12px;
+  }
+  .deliverables li::before {
+    content: "✓";
+    color: #2d8a2d;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .terms {
+    font-size: 11px;
+    color: #777;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 20px;
+  }
+  @media print {
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>INVOICE</h1>
+    <p style="margin:6px 0 0; color:#888; font-size:12px; letter-spacing:1px;">MyNFTool LLC</p>
+  </div>
+  <div class="meta">
+    <div><strong>Invoice #</strong> CARES-2026-001</div>
+    <div><strong>Date</strong> April 18, 2026</div>
+    <div><strong>Due</strong> Net 15 — May 3, 2026</div>
+  </div>
+</header>
+
+<div class="parties">
+  <div class="party">
+    <h3>From</h3>
+    <p class="name">MyNFTool LLC</p>
+    <p>Los Eucaliptos Dev</p>
+    <p>16058 Singh Dr.</p>
+    <p>Canovanas, PR 00729</p>
+    <p>johsian@gmail.com</p>
+  </div>
+  <div class="party">
+    <h3>Bill To</h3>
+    <p class="name">Caresthetic</p>
+    <p>Attn: Dr. Carlos R. Cardona</p>
+    <p>1064 Ave Ponce de Leon, Suite 205</p>
+    <p>San Juan, PR 00907</p>
+    <p>booking@carestheticpr.com</p>
+  </div>
+</div>
+
+<p style="margin:0 0 4px; font-size:11px; color:#888; text-transform:uppercase; letter-spacing:2px;">Project</p>
+<p style="margin:0 0 24px; font-size:16px; font-weight:600; color:#0d0d0d;">carestheticpr.com — Luxury Medical Aesthetics Website</p>
+
+<h2>Itemized Services</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:28px;">#</th>
+      <th>Service</th>
+      <th class="num" style="width:100px;">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        <div class="item">Design &amp; Art Direction</div>
+        <div class="desc">Luxury medical aesthetics brand system, typography, color palette, layout composition across 6 sections.</div>
+      </td>
+      <td class="num">$700.00</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <div class="item">Front-End Development</div>
+        <div class="desc">Hand-coded single-page site (1,574 lines HTML/CSS/JS), responsive layout, bilingual Spanish copy integration.</div>
+      </td>
+      <td class="num">$1,050.00</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <div class="item">Scroll-Driven Hero Animation</div>
+        <div class="desc">Video asset sourcing, Topaz AI upscaling to 4K, 121-frame WebP pipeline, scroll-orchestrated playback.</div>
+      </td>
+      <td class="num">$900.00</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <div class="item">Treatment Gallery &amp; Patient Video Testimonials</div>
+        <div class="desc">6 patient video integrations with poster frames, treatments grid, content curation.</div>
+      </td>
+      <td class="num">$450.00</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <div class="item">SEO &amp; Structured Data</div>
+        <div class="desc">Schema.org MedicalBusiness JSON-LD, OpenGraph/Twitter meta, sitemap.xml, robots.txt, canonical tags.</div>
+      </td>
+      <td class="num">$375.00</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <div class="item">Brand Assets</div>
+        <div class="desc">Favicon, Apple touch icon, logo optimization, deployable asset packaging.</div>
+      </td>
+      <td class="num">$200.00</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <div class="item">Booking Flow &amp; Social Integration</div>
+        <div class="desc">WhatsApp/phone booking links, Instagram/Threads/Facebook integration, contact CTAs.</div>
+      </td>
+      <td class="num">$250.00</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <div class="item">Chatbot Panel UI</div>
+        <div class="desc">Embedded chat panel with glass-effect styling.</div>
+      </td>
+      <td class="num">$225.00</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <div class="item">Deployment &amp; QA</div>
+        <div class="desc">Hostinger production deployment, cross-browser testing, performance pass.</div>
+      </td>
+      <td class="num">$350.00</td>
+    </tr>
+    <tr class="subtotal">
+      <td></td>
+      <td style="text-align:right;">Subtotal</td>
+      <td class="num">$4,500.00</td>
+    </tr>
+    <tr class="subtotal">
+      <td></td>
+      <td style="text-align:right;">Tax (if applicable)</td>
+      <td class="num">—</td>
+    </tr>
+    <tr class="total">
+      <td></td>
+      <td style="text-align:right;">TOTAL DUE</td>
+      <td class="num">$4,500.00 USD</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Optional Care Plan</h2>
+<div class="care-plan">
+  <strong>$200 / month</strong> — ongoing support includes content updates (up to 2 hrs/mo), automated backups, uptime monitoring, and hosting oversight. Month-to-month, cancel anytime.
+</div>
+
+<h2>Payment Details</h2>
+<div class="payment">
+  <p style="margin:0 0 4px;">Accepted payment methods — please contact for transfer details:</p>
+  <ul>
+    <li>ATH Móvil</li>
+    <li>Bank transfer</li>
+    <li>PayPal</li>
+  </ul>
+  <p class="terms">Late payments accrue 1.5% per month after the due date. All source files and deployment credentials delivered upon receipt of final payment.</p>
+</div>
+
+<h2>Deliverables Included</h2>
+<div class="deliverables">
+  <ul>
+    <li>Production site deployed at carestheticpr.com</li>
+    <li>All source files (new-site/ directory)</li>
+    <li>Deployable ZIP package</li>
+    <li>4K hero animation frame library (121 WebP frames)</li>
+    <li>6 patient testimonial videos with poster frames</li>
+    <li>Brand asset pack (logo, favicon, touch icon)</li>
+    <li>30 days post-launch bug fixes at no additional charge</li>
+  </ul>
+</div>
+
+<footer>
+  THANK YOU FOR YOUR BUSINESS — MyNFTool LLC
+</footer>
+
+</body>
+</html>

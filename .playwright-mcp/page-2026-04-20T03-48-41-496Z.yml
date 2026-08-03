@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Caresthetic home" [ref=e5] [cursor=pointer]:
+        - /url: "#hero"
+        - img "Caresthetic" [ref=e6]
+      - generic [ref=e7]:
+        - link "Servicios" [ref=e8] [cursor=pointer]:
+          - /url: "#services"
+        - link "Nosotros" [ref=e9] [cursor=pointer]:
+          - /url: "#about"
+        - link "Tratamientos" [ref=e10] [cursor=pointer]:
+          - /url: "#treatments"
+        - link "Reservar" [ref=e11] [cursor=pointer]:
+          - /url: "#contact"
+  - generic [ref=e12]:
+    - generic [ref=e14]:
+      - paragraph [ref=e15]: San Juan · Puerto Rico
+      - heading "Caresthetic" [level=1] [ref=e16]
+      - paragraph [ref=e17]: Medicina Estética · Precisión · Elegancia
+      - paragraph [ref=e18]: Tratamientos de vanguardia con resultados naturales, en un ambiente de lujo, privacidad y atención altamente personalizada.
+      - generic [ref=e19]:
+        - link "Agendar Consulta" [ref=e20] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Conocer Clínica" [ref=e21] [cursor=pointer]:
+          - /url: "#about"
+    - generic [ref=e22]:
+      - generic [ref=e23]: Scroll
+      - img [ref=e24]
+  - generic [ref=e27]:
+    - generic [ref=e28]:
+      - paragraph [ref=e29]: Servicios
+      - heading "Tratamientos diseñados para realzar, no transformar" [level=2] [ref=e30]:
+        - text: Tratamientos diseñados para
+        - emphasis [ref=e31]: realzar, no transformar
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e36]: 
+        - heading "Rejuvenecimiento de la Piel" [level=3] [ref=e37]
+        - paragraph [ref=e38]: Protocolos avanzados para restaurar textura, luminosidad y firmeza con una estética limpia, fresca y sofisticada.
+      - generic [ref=e39]:
+        - generic [ref=e41]: 
+        - heading "Inyectables de Precisión" [level=3] [ref=e42]
+        - paragraph [ref=e43]: Bótox, Xeomin y rellenos dérmicos aplicados con criterio médico y una visión facial refinada para resultados naturales.
+      - generic [ref=e44]:
+        - generic [ref=e46]: 
+        - heading "Tecnología de Vanguardia" [level=3] [ref=e47]
+        - paragraph [ref=e48]: Medicina estética respaldada por equipos de última generación, evaluación clínica cuidadosa y ejecución controlada.
+      - generic [ref=e49]:
+        - generic [ref=e51]: 
+        - heading "Atención Personalizada" [level=3] [ref=e52]
+        - paragraph [ref=e53]: Cada plan se ajusta a tus rasgos, objetivos y ritmo de vida para preservar tu identidad y elevar tu presencia.
+  - generic [ref=e55]:
+    - generic [ref=e56]:
+      - paragraph [ref=e57]: Nosotros
+      - heading "Donde la medicina estética se siente editorial" [level=2] [ref=e58]:
+        - text: Donde la medicina estética
+        - emphasis [ref=e59]: se siente editorial
+    - generic [ref=e60]:
+      - paragraph [ref=e62]: Caresthetic es una clínica de medicina estética ubicada en 1064 Ave Ponce de Leon, suite 205, San Juan, Puerto Rico, dirigida por el Dr. Carlos R. Cardona.
+      - paragraph [ref=e64]: Nuestro enfoque une criterio médico, sensibilidad estética y tecnología avanzada para ofrecer resultados excepcionales que respetan la armonía natural del rostro y la piel.
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: "205"
+        - paragraph [ref=e68]: Suite
+      - generic [ref=e69]:
+        - paragraph [ref=e70]: "6"
+        - paragraph [ref=e71]: Tratamientos Clave
+      - generic [ref=e72]:
+        - paragraph [ref=e73]: 1:1
+        - paragraph [ref=e74]: Atención Personal
+  - generic [ref=e76]:
+    - generic [ref=e77]:
+      - paragraph [ref=e78]: Tratamientos
+      - heading "Portafolio clínico con una presentación de lujo" [level=2] [ref=e79]:
+        - text: Portafolio clínico con una
+        - emphasis [ref=e80]: presentación de lujo
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - generic "Video de tratamiento de Bótox" [ref=e85]
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: Inyectables
+          - heading "Bótox" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Suaviza líneas de expresión y rejuvenece el rostro sin perder naturalidad.
+      - generic [ref=e90]:
+        - generic "Video de tratamiento Anti-Edad" [ref=e92]
+        - generic [ref=e93]:
+          - paragraph [ref=e94]: Rejuvenecimiento
+          - heading "Anti-Edad" [level=3] [ref=e95]
+          - paragraph [ref=e96]: Estrategias integrales para mejorar tono, firmeza y vitalidad visible.
+      - generic [ref=e97]:
+        - generic "Video de tratamiento Xeomin" [ref=e99]
+        - generic [ref=e100]:
+          - paragraph [ref=e101]: Inyectables
+          - heading "Xeomin" [level=3] [ref=e102]
+          - paragraph [ref=e103]: Neuromodulación precisa para una expresión descansada, fresca y elegante.
+      - generic [ref=e104]:
+        - generic "Video de tratamiento Rellenos Dérmicos" [ref=e106]
+        - generic [ref=e107]:
+          - paragraph [ref=e108]: Rellenos
+          - heading "Rellenos Dérmicos" [level=3] [ref=e109]
+          - paragraph [ref=e110]: Volumen estratégico y contorno facial con acabados sutiles y armónicos.
+      - generic [ref=e111]:
+        - generic "Video de tratamiento Medicina Estética" [ref=e113]
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: Integral
+          - heading "Medicina Estética" [level=3] [ref=e116]
+          - paragraph [ref=e117]: Planes clínicos personalizados para cuidar piel, estructura y proporción.
+      - generic [ref=e118]:
+        - generic "Video de tratamiento Ácido Hialurónico" [ref=e120]
+        - generic [ref=e121]:
+          - paragraph [ref=e122]: Hidratación
+          - heading "Ácido Hialurónico" [level=3] [ref=e123]
+          - paragraph [ref=e124]: Hidratación profunda y soporte dérmico para una apariencia luminosa y plena.
+  - generic [ref=e126]:
+    - generic [ref=e127]:
+      - paragraph [ref=e128]: Detalles
+      - heading "Experiencia Caresthetic" [level=2] [ref=e129]
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]: Director Médico
+        - generic [ref=e134]: Dr. Carlos R. Cardona
+      - generic [ref=e135]:
+        - generic [ref=e136]: Ubicación
+        - generic [ref=e137]: 1064 Ave Ponce de Leon, Suite 205, San Juan, Puerto Rico
+      - generic [ref=e138]:
+        - generic [ref=e139]: Horario
+        - generic [ref=e140]: Lunes a Viernes 9:00 AM–5:00 PM · Sábados alternos 9:00 AM–12:00 PM
+      - generic [ref=e141]:
+        - generic [ref=e142]: Especialidad
+        - generic [ref=e143]: Medicina estética con resultados naturales
+      - generic [ref=e144]:
+        - generic [ref=e145]: Contacto
+        - generic [ref=e146]: 787.468.8050 · booking@carestheticpr.com
+      - generic [ref=e147]:
+        - generic [ref=e148]: Enfoque
+        - generic [ref=e149]: Personalizado · Seguro · Refinado
+  - generic [ref=e152]:
+    - generic [ref=e153]:
+      - paragraph [ref=e154]: Contacto
+      - heading "Agenda una experiencia a tu medida" [level=2] [ref=e155]:
+        - text: Agenda una experiencia
+        - emphasis [ref=e156]: a tu medida
+      - paragraph [ref=e157]: Da el primer paso hacia una versión más refinada de ti, con una consulta personalizada en un entorno clínico de alto nivel.
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: Dirección
+          - link "1064 Ave Ponce de Leon, Suite 205, San Juan, Puerto Rico" [ref=e161] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=1064%20Ave%20Ponce%20de%20Leon%20Suite%20205%2C%20San%20Juan%2C%20Puerto%20Rico
+        - generic [ref=e162]:
+          - generic [ref=e163]: Teléfono
+          - link "787.468.8050" [ref=e164] [cursor=pointer]:
+            - /url: tel:7874688050
+        - generic [ref=e165]:
+          - generic [ref=e166]: Email
+          - link "booking@carestheticpr.com" [ref=e167] [cursor=pointer]:
+            - /url: mailto:booking@carestheticpr.com
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e172]: Nombre Completo
+          - textbox "Nombre Completo" [ref=e173]:
+            - /placeholder: Tu nombre
+        - generic [ref=e174]:
+          - generic [ref=e175]: Correo Electrónico
+          - textbox "Correo Electrónico" [ref=e176]:
+            - /placeholder: tu@email.com
+      - generic [ref=e177]:
+        - generic [ref=e178]:
+          - generic [ref=e179]: Teléfono
+          - textbox "Teléfono" [ref=e180]:
+            - /placeholder: 787.xxx.xxxx
+        - generic [ref=e181]:
+          - generic [ref=e182]: Servicio de Interés
+          - combobox "Servicio de Interés" [ref=e183] [cursor=pointer]:
+            - option "Seleccionar tratamiento" [disabled] [selected]
+            - option "Bótox"
+            - option "Anti-Edad"
+            - option "Xeomin"
+            - option "Rellenos Dérmicos"
+            - option "Medicina Estética"
+            - option "Ácido Hialurónico"
+      - generic [ref=e184]:
+        - generic [ref=e185]: Mensaje
+        - textbox "Mensaje" [ref=e186]:
+          - /placeholder: Cuéntanos sobre tus inquietudes o preguntas
+      - iframe [ref=e190]:
+        - generic [ref=f1e2]:
+          - generic [ref=f1e3]:
+            - checkbox "I'm not a robot" [ref=f1e7]
+            - generic [ref=f1e11]: I'm not a robot
+          - generic [ref=f1e15]: reCAPTCHA
+      - button "Agendar Consulta" [ref=e192] [cursor=pointer]
+  - generic [ref=e193]:
+    - generic [ref=e194]: Concierge AI disponible para tratamientos, horario, ubicación y reservas.
+    - button "Abrir asistente virtual" [ref=e195] [cursor=pointer]:
+      - generic [ref=e196]: 
+  - contentinfo [ref=e197]:
+    - generic [ref=e198]:
+      - link "Caresthetic home" [ref=e199] [cursor=pointer]:
+        - /url: "#hero"
+        - img "Caresthetic" [ref=e200]
+      - paragraph [ref=e201]: © 2026 Caresthetic. Todos los derechos reservados.
+      - generic [ref=e202]:
+        - link "Instagram" [ref=e203] [cursor=pointer]:
+          - /url: https://www.instagram.com/caresthetic_?igsh=czR3eGtmNnRvejAw
+          - generic [ref=e204]: 
+        - link "Threads" [ref=e205] [cursor=pointer]:
+          - /url: https://www.threads.com/@caresthetic_?igshid=NTc4MTIwNjQ2YQ==
+          - generic [ref=e206]: 
+        - link "Facebook" [ref=e207] [cursor=pointer]:
+          - /url: https://www.facebook.com/share/12KSNAKZW7f/?mibextid=wwXIfr
+          - generic [ref=e208]: 

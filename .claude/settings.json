@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffprobe -v quiet -print_format json -show_streams \"/Volumes/YOCN/My Websites/Caresthetic/_Topaz_79749.mp4\")",
+      "Bash(python3 -c \"import sys,json; s=[x for x in json.load\\(sys.stdin\\)['streams'] if x['codec_type']=='video'][0]; print\\(f\\\\\"Resolution: {s['width']}x{s['height']}\\\\nFPS: {s.get\\('r_frame_rate'\\)}\\\\nFrames: {s.get\\('nb_frames','unknown'\\)}\\\\\"\\)\")",
+      "Bash(python3 -c \" from PIL import Image import os img = Image.open\\('/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp/frame_0001.webp'\\) print\\(f'Current frame size: {img.size}'\\) \")",
+      "Bash(identify \"/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp/frame_0001.webp\")",
+      "Bash(ffprobe -v quiet -show_frames -select_streams v:0 \"/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp/frame_0001.webp\")",
+      "Bash(ffmpeg -i '/Volumes/YOCN/My Websites/Caresthetic/_Topaz_79749.mp4' -vf fps=24 -c:v libwebp -quality 90 -compression_level 4 -preset picture -an '/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp/frame_%04d.webp' -y)",
+      "Bash(ffmpeg -codecs)",
+      "Bash(cwebp --version)",
+      "Bash(mkdir -p \"/tmp/caresthetic_frames_png\")",
+      "Bash(ffmpeg -i '/Volumes/YOCN/My Websites/Caresthetic/_Topaz_79749.mp4' -vf fps=24 /tmp/caresthetic_frames_png/frame_%04d.png -y)",
+      "Read(//private/tmp/caresthetic_frames_png/**)",
+      "Bash(python3 -c ':*)"
+    ],
+    "additionalDirectories": [
+      "/Volumes/YOCN/My Websites/Caresthetic/new-site/frames-webp"
+    ]
+  }
+}
