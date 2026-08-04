@@ -188,6 +188,32 @@
   .spec-row:hover { background: rgba(255, 255, 255, 0.02); }
   .spec-row:last-child { border-bottom: none; }
 
+  .catalog-meta {
+    min-height: 1.5rem;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .catalog-button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .catalog-button-disabled {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.38);
+  }
+
   .cta-glow {
     position: absolute;
     top: 0;
@@ -824,7 +850,7 @@
       <div class="divider mx-auto mt-5 mb-16"></div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+    <div id="tizo-catalog" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16" aria-live="polite">
       <div class="glass-card rounded-3xl p-8 text-center" data-animate style="transition-delay: 0.1s;">
         <div class="flex items-end justify-center mb-6" style="height:160px;">
           <img src="tizo-assets/images/tizo3-tube.png" alt="TiZO3 Tube" class="product-img" style="height:140px; width:auto;">
@@ -1009,5 +1035,8 @@
     if (p && p.catch) p.catch(() => {});
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0/dist/umd/supabase.min.js"></script>
+<script src="/supabase-config.js"></script>
+<script src="/catalog.js"></script>
 </body>
 </html>

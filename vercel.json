@@ -17,6 +17,10 @@
       "destination": "/new-site/tizo.html"
     },
     {
+      "source": "/admin",
+      "destination": "/new-site/admin.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/new-site/$1"
     }

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#090807">
+  <title>Administración de productos | Caresthetic</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Ir a Caresthetic">
+      <img src="/logo.png" alt="Caresthetic">
+      <span>Administración</span>
+    </a>
+    <div class="topbar-actions">
+      <a class="ghost-button" href="/tizo" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+        Ver tienda
+      </a>
+      <button id="sign-out-button" class="ghost-button is-hidden" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M15 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/></svg>
+        Salir
+      </button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section id="configuration-panel" class="state-card is-hidden" aria-labelledby="configuration-title">
+      <div class="state-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.7 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.7a2 2 0 0 0-3.4 0Z"/></svg>
+      </div>
+      <p class="eyebrow">Configuración pendiente</p>
+      <h1 id="configuration-title">Falta conectar la llave pública de Supabase</h1>
+      <p>El panel ya está preparado. Añade la llave <code>sb_publishable_…</code> del proyecto Caresthetic en <code>supabase-config.js</code> para activar el acceso.</p>
+    </section>
+
+    <section id="login-panel" class="login-layout is-hidden" aria-labelledby="login-title">
+      <div class="login-intro">
+        <p class="eyebrow">Catálogo TiZO</p>
+        <h1>Tu inventario,<br><em>siempre al día.</em></h1>
+        <p>Administra productos, precios, disponibilidad e imágenes desde un solo lugar. Los cambios publicados aparecen automáticamente en la tienda.</p>
+        <div class="security-note">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Acceso protegido con Supabase Auth y reglas de seguridad por usuario.</span>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <div class="login-mark" aria-hidden="true">C</div>
+        <h2 id="login-title">Iniciar sesión</h2>
+        <p>Usa la cuenta administrativa de Caresthetic.</p>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="login-email">Correo electrónico</label>
+            <input id="login-email" name="email" type="email" autocomplete="username" required placeholder="nombre@carestheticpr.com">
+          </div>
+          <div class="field">
+            <label for="login-password">Contraseña</label>
+            <div class="password-field">
+              <input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Tu contraseña">
+              <button id="password-toggle" class="icon-button" type="button" aria-label="Mostrar contraseña">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+          <p id="login-error" class="form-error" role="alert"></p>
+          <button id="login-button" class="primary-button" type="submit">
+            <span>Entrar al panel</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard" class="dashboard is-hidden" aria-labelledby="dashboard-title">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">Catálogo TiZO</p>
+          <h1 id="dashboard-title">Productos</h1>
+          <p id="welcome-copy">Administra el catálogo que aparece en carestheticpr.com/tizo.</p>
+        </div>
+        <button id="new-product-button" class="primary-button compact" type="button">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <span>Nuevo producto</span>
+        </button>
+      </div>
+
+      <section class="stats-grid" aria-label="Resumen del catálogo">
+        <article class="stat-card">
+          <span class="stat-label">Total</span>
+          <strong id="total-count">0</strong>
+          <span class="stat-caption">productos registrados</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Publicados</span>
+          <strong id="active-count">0</strong>
+          <span class="stat-caption">visibles en la tienda</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Inventario bajo</span>
+          <strong id="low-stock-count">0</strong>
+          <span class="stat-caption">5 unidades o menos</span>
+        </article>
+      </section>
+
+      <div class="catalog-toolbar">
+        <div class="search-field">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <label class="sr-only" for="product-search">Buscar productos</label>
+          <input id="product-search" type="search" placeholder="Buscar por nombre o descripción">
+        </div>
+        <label class="filter-field">
+          <span>Mostrar</span>
+          <select id="status-filter">
+            <option value="all">Todos</option>
+            <option value="active">Publicados</option>
+            <option value="inactive">Borradores</option>
+            <option value="out">Agotados</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="catalog-loading" class="loading-state" role="status">
+        <span class="spinner" aria-hidden="true"></span>
+        Cargando productos…
+      </div>
+
+      <div id="catalog-empty" class="empty-state is-hidden">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16v13H4zM8 7V5a4 4 0 0 1 8 0v2"/></svg>
+        <h2>No encontramos productos</h2>
+        <p>Cambia los filtros o crea un producto nuevo.</p>
+      </div>
+
+      <div id="product-list" class="product-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="product-dialog-title">
+    <form id="product-form" method="dialog" novalidate>
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">Catálogo TiZO</p>
+          <h2 id="product-dialog-title">Nuevo producto</h2>
+        </div>
+        <button id="dialog-close-button" class="icon-button" type="button" aria-label="Cerrar editor">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="dialog-body">
+        <input id="product-id" name="id" type="hidden">
+        <div class="form-grid two-columns">
+          <div class="field">
+            <label for="product-name">Nombre</label>
+            <input id="product-name" name="name" type="text" required maxlength="120" placeholder="Ej. TiZO3 Tinted">
+          </div>
+          <div class="field">
+            <label for="product-slug">Identificador</label>
+            <input id="product-slug" name="slug" type="text" required pattern="[a-z0-9]+(?:-[a-z0-9]+)*" placeholder="tizo3-tinted">
+            <small>Solo letras minúsculas, números y guiones.</small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="product-short-description">Descripción corta</label>
+          <input id="product-short-description" name="short_description" type="text" maxlength="160" placeholder="Tinted Primer · SPF 40">
+        </div>
+
+        <div class="field">
+          <label for="product-description">Descripción completa</label>
+          <textarea id="product-description" name="description" rows="4" placeholder="Describe el producto y sus beneficios."></textarea>
+        </div>
+
+        <div class="form-grid three-columns">
+          <div class="field">
+            <label for="product-price">Precio (USD)</label>
+            <input id="product-price" name="price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+            <small>Déjalo en 0 para ocultar el precio.</small>
+          </div>
+          <div class="field">
+            <label for="product-inventory">Inventario</label>
+            <input id="product-inventory" name="inventory_count" type="number" min="0" step="1" inputmode="numeric" placeholder="Sin límite">
+            <small>Vacío = no llevar conteo.</small>
+          </div>
+          <div class="field">
+            <label for="product-order">Orden</label>
+            <input id="product-order" name="sort_order" type="number" step="1" value="0" inputmode="numeric">
+            <small>Menor número aparece primero.</small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="product-image">Ruta o URL de imagen</label>
+          <input id="product-image" name="cover_image_url" type="text" placeholder="/tizo-assets/images/producto.png">
+        </div>
+
+        <div class="field">
+          <label for="product-features">Características</label>
+          <textarea id="product-features" name="features" rows="4" placeholder="Una característica por línea"></textarea>
+          <small>Escribe una característica por línea.</small>
+        </div>
+
+        <fieldset class="toggle-group">
+          <legend>Visibilidad</legend>
+          <label class="toggle-row">
+            <span>
+              <strong>Publicado</strong>
+              <small>El producto aparece en la tienda.</small>
+            </span>
+            <input id="product-active" name="active" type="checkbox">
+            <span class="toggle" aria-hidden="true"></span>
+          </label>
+          <label class="toggle-row">
+            <span>
+              <strong>Destacado</strong>
+              <small>Marca el producto como selección principal.</small>
+            </span>
+            <input id="product-featured" name="featured" type="checkbox">
+            <span class="toggle" aria-hidden="true"></span>
+          </label>
+        </fieldset>
+
+        <p id="product-form-error" class="form-error" role="alert"></p>
+      </div>
+
+      <footer class="dialog-footer">
+        <button id="delete-product-button" class="danger-button is-hidden" type="button">Eliminar</button>
+        <div class="dialog-footer-actions">
+          <button id="cancel-product-button" class="ghost-button" type="button">Cancelar</button>
+          <button id="save-product-button" class="primary-button compact" type="submit">
+            <span>Guardar producto</span>
+          </button>
+        </div>
+      </footer>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0/dist/umd/supabase.min.js"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>
