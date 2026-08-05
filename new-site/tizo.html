@@ -343,6 +343,7 @@
     }
   }
 </style>
+<link rel="stylesheet" href="/cart.css">
 </head>
 
 <body class="text-white font-body">
@@ -358,14 +359,24 @@
       <a href="/" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Inicio</a>
       <a href="#productos" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">Productos</a>
       <a href="#ciencia" class="nav-link text-sm text-white/60 tracking-wider uppercase" style="letter-spacing:0.12em; font-size:0.78rem;">La Ciencia</a>
-      <a href="#comprar" class="btn-gold text-xs px-5 py-2.5 rounded-full" style="min-width:140px;">Comprar</a>
+      <button class="cart-trigger" type="button" data-cart-open aria-label="Abrir carrito, 0 artículos">
+        <i class="ri-shopping-bag-line" aria-hidden="true"></i>
+        <span>Carrito</span>
+        <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
     </div>
 
-    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer" aria-label="Toggle menu">
-      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar1"></span>
-      <span class="block w-6 h-px bg-white transition-all duration-300" id="bar2"></span>
-      <span class="block w-4 h-px bg-white transition-all duration-300 self-end" id="bar3"></span>
-    </button>
+    <div class="md:hidden flex items-center gap-2">
+      <button class="cart-trigger cart-trigger-mobile" type="button" data-cart-open aria-label="Abrir carrito, 0 artículos">
+        <i class="ri-shopping-bag-line" aria-hidden="true"></i>
+        <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
+      <button id="menu-toggle" class="flex flex-col gap-1.5 p-2 cursor-pointer" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span class="block w-6 h-px bg-white transition-all duration-300" id="bar1"></span>
+        <span class="block w-6 h-px bg-white transition-all duration-300" id="bar2"></span>
+        <span class="block w-4 h-px bg-white transition-all duration-300 self-end" id="bar3"></span>
+      </button>
+    </div>
   </div>
 
   <div id="mobile-menu" class="hidden md:hidden">
@@ -373,7 +384,7 @@
       <a href="/" class="font-body text-white/70 tracking-wider uppercase text-sm">Inicio</a>
       <a href="#productos" class="font-body text-white/70 tracking-wider uppercase text-sm">Productos</a>
       <a href="#ciencia" class="font-body text-white/70 tracking-wider uppercase text-sm">La Ciencia</a>
-      <a href="#comprar" class="btn-gold text-xs px-5 py-3 rounded-full text-center">Comprar</a>
+      <button class="btn-gold text-xs px-5 py-3 rounded-full text-center" type="button" data-cart-open>Ver carrito</button>
     </div>
   </div>
 </nav>
@@ -945,6 +956,52 @@
   </div>
 </section>
 
+<!-- ===== CARRITO ===== -->
+<div class="cart-overlay" data-cart-overlay hidden></div>
+<aside class="cart-drawer" data-cart-drawer role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="cart-header">
+    <div>
+      <p class="cart-eyebrow">Compra segura</p>
+      <h2 id="cart-title">Tu carrito</h2>
+    </div>
+    <button class="cart-icon-button" type="button" data-cart-close aria-label="Cerrar carrito">
+      <i class="ri-close-line" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="cart-content">
+    <div class="cart-empty" data-cart-empty>
+      <i class="ri-shopping-bag-3-line" aria-hidden="true"></i>
+      <h3>Tu carrito está vacío</h3>
+      <p>Añade tu fórmula TiZO favorita para continuar.</p>
+      <button class="cart-secondary-button" type="button" data-cart-continue>Ver productos</button>
+    </div>
+    <div class="cart-items" data-cart-items aria-live="polite"></div>
+  </div>
+
+  <div class="cart-footer" data-cart-footer hidden>
+    <div class="cart-summary">
+      <span>Subtotal</span>
+      <strong data-cart-subtotal>$0.00</strong>
+    </div>
+    <p class="cart-note">El total final y los detalles de recogido se confirman en el pago seguro.</p>
+    <p class="cart-error" data-cart-error role="alert" hidden></p>
+    <button class="cart-checkout-button" type="button" data-cart-checkout>
+      <span data-checkout-label>Proceder al pago</span>
+      <i class="ri-lock-line" aria-hidden="true"></i>
+    </button>
+    <div class="cart-secure-note">
+      <i class="ri-shield-check-line" aria-hidden="true"></i>
+      <span>Pago protegido por Stripe</span>
+    </div>
+  </div>
+</aside>
+
+<div class="cart-toast" data-cart-toast role="status" aria-live="polite" hidden>
+  <i class="ri-check-line" aria-hidden="true"></i>
+  <span data-cart-toast-text>Producto añadido</span>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer class="py-10 px-6" style="border-top: 1px solid rgba(255,255,255,0.06);">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -988,6 +1045,8 @@
 
   menuToggle.addEventListener('click', () => {
     menuOpen = !menuOpen;
+    menuToggle.setAttribute('aria-expanded', String(menuOpen));
+    menuToggle.setAttribute('aria-label', menuOpen ? 'Cerrar menú' : 'Abrir menú');
     if (menuOpen) {
       mobileMenu.classList.remove('hidden');
       bar1.style.transform = 'translateY(6px) rotate(45deg)';
@@ -1006,6 +1065,8 @@
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menuOpen = false;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menú');
       mobileMenu.classList.add('hidden');
       bar1.style.transform = '';
       bar2.style.opacity = '';
@@ -1037,6 +1098,7 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0/dist/umd/supabase.min.js"></script>
 <script src="/supabase-config.js"></script>
+<script src="/cart.js"></script>
 <script src="/catalog.js"></script>
 </body>
 </html>

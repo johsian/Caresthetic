@@ -21,6 +21,10 @@
       "destination": "/new-site/admin.html"
     },
     {
+      "source": "/checkout-success",
+      "destination": "/new-site/checkout-success.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/new-site/$1"
     }

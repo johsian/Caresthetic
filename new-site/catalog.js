@@ -52,15 +52,19 @@
     var meta = makeElement('p', 'font-body text-sm mb-5 catalog-meta', metaText);
 
     var button;
-    if (product.inventory_count === 0) {
+    if (!product.price_cents) {
+      button = makeElement('span', 'catalog-button catalog-button-disabled', 'Precio pendiente');
+      button.setAttribute('aria-disabled', 'true');
+    } else if (product.inventory_count === 0) {
       button = makeElement('span', 'catalog-button catalog-button-disabled', 'Agotado');
       button.setAttribute('aria-disabled', 'true');
     } else {
-      var message = 'Hola, me gustaría comprar ' + product.name + ' en Caresthetic';
-      button = makeElement('a', 'btn-gold text-xs px-6 py-3 rounded-full w-full', 'Comprar Ahora');
-      button.href = 'https://wa.me/17874688050?text=' + encodeURIComponent(message);
-      button.target = '_blank';
-      button.rel = 'noopener';
+      button = makeElement('button', 'btn-gold catalog-button text-xs px-6 py-3 rounded-full w-full', 'Añadir al carrito');
+      button.type = 'button';
+      button.setAttribute('aria-label', 'Añadir ' + product.name + ' al carrito');
+      button.addEventListener('click', function () {
+        window.dispatchEvent(new CustomEvent('caresthetic:add-to-cart', { detail: product }));
+      });
       button.style.maxWidth = '200px';
     }
 
@@ -74,7 +78,7 @@
 
   client
     .from('products')
-    .select('id, slug, name, short_description, price_cents, currency, inventory_count, cover_image_url, sort_order')
+    .select('id, slug, name, short_description, price_cents, currency, inventory_count, cover_image_url, active, sort_order')
     .eq('active', true)
     .order('sort_order', { ascending: true })
     .then(function (result) {
@@ -86,5 +90,6 @@
       });
       catalog.replaceChildren(fragment);
       catalog.setAttribute('data-source', 'supabase');
+      window.dispatchEvent(new CustomEvent('caresthetic:catalog-ready', { detail: result.data }));
     });
 })();
