@@ -2,3 +2,4 @@
 hostinger-deploy/
 hostinger-upload.zip
 .vercel
+.worktrees/
